@@ -100,9 +100,9 @@ public   void loggerfile() {
 		su.signUpusername1().sendKeys(username);//+getDate());
 		Thread.sleep(3000);
 		logger.info("Signin username entered");
-		su.signUppassword().sendKeys(password);
+		su.signUppassword1().sendKeys(password);
 		logger.info("Signin password entered");
-		su.signUpBtn().click();
+		su.signUpBtn1().click();
 		Thread.sleep(3000);
 		logger.info("Signed in sucessfull");
 		driver.switchTo().alert().accept();

@@ -2,6 +2,9 @@ package ObjectRepository;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import CucumberOptionsss.PageObjectHandler;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +12,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class Signup {
+
 
 	/*
 	@FindBy(id="signin2")
@@ -27,13 +30,7 @@ public class Signup {
 */
 	
 	
-	WebDriver driver;
-	public Signup(WebDriver driver) {
-		// TODO Auto-generated constructor stub
-		  this.driver = driver;
-		PageFactory.initElements(driver,this);
-		
-}
+
 	
 	/*
 	public WebElement signUpLink1() {
@@ -41,7 +38,7 @@ public class Signup {
 		
 		//return signUpLink1;
 	}
-/*	
+	
 	public WebElement signUpusername1() {
 	
 		return username;
@@ -57,150 +54,228 @@ public class Signup {
 		return signUpBtn;
 	}
 */
-
 	
-//	By by = By.id("someId");
-	// WebElement e = driver.findElement(by);
+		
+
+public class Signup extends PageObjectHandler{
+	    
+	    WebElement locator = null;    
+	    WebDriver driver;
+	    public Signup(WebDriver driver) {
+	        // TODO Auto-generated constructor stub
+	          this.driver = driver;
+	        PageFactory.initElements(driver,this);
+
+	 
+
+	}
+	    
+	    PageObjectHandler poj = new PageObjectHandler();
+	    
+	    public WebElement signUpLink1() throws Exception {
+	        
+	        String selector = poj.getselector("Signup", "signUpLink1");
+	        String value = poj.getvalue("Signup", "signUpLink1",0);
+	        
+	     switch (selector) {
+	     case "id":
+	         locator = driver.findElement(By.id(value));
+	         //by =   By.id(value);
+	         break;
+	     case "className":
+	         locator = driver.findElement(By.className(value));
+	        // by =   By.className(value);
+	         break;
+	     case "tagName":
+	         locator = driver.findElement(By.tagName(value));
+	         //by =   By.tagName(value);
+	         break;
+	     case "xpath":
+	         locator = driver.findElement(By.xpath(value));
+	         //by =   By.xpath(value);
+	         break;
+	     case "cssSelector":
+	         locator = driver.findElement(By.cssSelector(value));
+	        // by =   By.cssSelector(value);
+	         break;
+	     case "linkText":
+	         locator = driver.findElement(By.linkText(value));
+	        // by =  By.linkText(value);
+	         break;
+	     case "name":
+	         locator = driver.findElement(By.name(value));
+	         //by =   By.name(value);
+	         break;
+	     case "partialLinkText":
+	         locator = driver.findElement(By.partialLinkText(value));
+	         //by =  By.partialLinkText(value);
+	                 break;
+	     default:
+	         throw new Exception("locator : " + selector + " not found!!!");
+	         
+	             }
+	     return locator;
+	        }
+	        
+	        
+	     
+
+	 
+
+	    public WebElement signUpusername1() throws Exception {
+	        
+	        String selector = poj.getselector("Signup", "signUpusername1");
+	        String value = poj.getvalue("Signup", "signUpusername1", 0);
+	        
+	         switch (selector) {
+	         case "id":
+	             locator = driver.findElement(By.id(value));
+	             //by =   By.id(value);
+	             break;
+	         case "className":
+	             locator = driver.findElement(By.className(value));
+	            // by =   By.className(value);
+	             break;
+	         case "tagName":
+	             locator = driver.findElement(By.tagName(value));
+	             //by =   By.tagName(value);
+	             break;
+	         case "xpath":
+	             locator = driver.findElement(By.xpath(value));
+	             //by =   By.xpath(value);
+	             break;
+	         case "cssSelector":
+	             locator = driver.findElement(By.cssSelector(value));
+	            // by =   By.cssSelector(value);
+	             break;
+	         case "linkText":
+	             locator = driver.findElement(By.linkText(value));
+	            // by =  By.linkText(value);
+	             break;
+	         case "name":
+	             locator = driver.findElement(By.name(value));
+	             //by =   By.name(value);
+	             break;
+	         case "partialLinkText":
+	             locator = driver.findElement(By.partialLinkText(value));
+	             //by =  By.partialLinkText(value);
+	                     break;
+	         default:
+	             throw new Exception("locator : " + selector + " not found!!!");
+	             
+	                 }
+	         return locator;
+	            }
+	    
+	    
+	    
+	    public WebElement signUppassword1() throws Exception {
+	        
+	        String selector = poj.getselector("Signup", "signUppassword1");
+	        String value = poj.getvalue("Signup", "signUppassword1", 0);
+	        
+	         switch (selector) {
+	         case "id":
+	             locator = driver.findElement(By.id(value));
+	             //by =   By.id(value);
+	             break;
+	         case "className":
+	             locator = driver.findElement(By.className(value));
+	            // by =   By.className(value);
+	             break;
+	         case "tagName":
+	             locator = driver.findElement(By.tagName(value));
+	             //by =   By.tagName(value);
+	             break;
+	         case "xpath":
+	             locator = driver.findElement(By.xpath(value));
+	             //by =   By.xpath(value);
+	             break;
+	         case "cssSelector":
+	             locator = driver.findElement(By.cssSelector(value));
+	            // by =   By.cssSelector(value);
+	             break;
+	         case "linkText":
+	             locator = driver.findElement(By.linkText(value));
+	            // by =  By.linkText(value);
+	             break;
+	         case "name":
+	             locator = driver.findElement(By.name(value));
+	             //by =   By.name(value);
+	             break;
+	         case "partialLinkText":
+	             locator = driver.findElement(By.partialLinkText(value));
+	             //by =  By.partialLinkText(value);
+	                     break;
+	         default:
+	             throw new Exception("locator : " + selector + " not found!!!");
+	             
+	                 }
+	         return locator;
+	            }    
+	    
+	        public WebElement signUpBtn1() throws Exception {
+	    
+	            String selector = poj.getselector("Signup", "signUpBtn1");
+	            String value = poj.getvalue("Signup", "signUpBtn1", 0);
+	    
+	             switch (selector) {
+	             case "id":
+	                 locator = driver.findElement(By.id(value));
+	                 //by =   By.id(value);
+	                 break;
+	             case "className":
+	                 locator = driver.findElement(By.className(value));
+	                // by =   By.className(value);
+	                 break;
+	             case "tagName":
+	                 locator = driver.findElement(By.tagName(value));
+	                 //by =   By.tagName(value);
+	                 break;
+	             case "xpath":
+	                 locator = driver.findElement(By.xpath(value));
+	                 //by =   By.xpath(value);
+	                 break;
+	             case "cssSelector":
+	                 locator = driver.findElement(By.cssSelector(value));
+	                // by =   By.cssSelector(value);
+	                 break;
+	             case "linkText":
+	                 locator = driver.findElement(By.linkText(value));
+	                // by =  By.linkText(value);
+	                 break;
+	             case "name":
+	                 locator = driver.findElement(By.name(value));
+	                 //by =   By.name(value);
+	                 break;
+	             case "partialLinkText":
+	                 locator = driver.findElement(By.partialLinkText(value));
+	                 //by =  By.partialLinkText(value);
+	                         break;
+	             default:
+	                 throw new Exception("locator : " + selector + " not found!!!");
+	                 
+	                     }
+	             return locator;
+	                }
+}
 	
-	By by;
-
-	String selector = "id";
-	String value ="signin2";
-	@Test
-	public WebElement signUpLink1() throws Exception {
-	 switch (selector) {
-     case "id":
-         by =  By.id(value);
-
-         break;
-     case "className":
-         by =  By.className(value);
-         break;
-     case "tagName":
-         by =  By.tagName(value);
-         break;
-     case "xpath":
-         by =  By.xpath(value);
-         break;
-     case "cssSelector":
-         by =  By.cssSelector(value);
-         break;
-     case "linkText":
-         by =  By.linkText(value);
-         break;
-     case "name":
-         by =  By.name(value);
-         break;
-     case "partialLinkText":
-         by =  By.partialLinkText(value);
+// Gmail -Admin123$
+//github -Admin@protest1
+/*
+ *  <Username>shammu</Username>  
+        <Password>shammu1234</Password>
         
-         break;
-     default:
-         throw new Exception("locator : " + selector + " not found!!!");
- }
-	 return signUpLink1();
-}
-	public WebElement signUpusername1() throws Exception {
-		
-		 switch (selector) {
-	     case "id":
-	         by =  By.id(value);
-
-	         break;
-	     case "className":
-	         by =  By.className(value);
-	         break;
-	     case "tagName":
-	         by =  By.tagName(value);
-	         break;
-	     case "xpath":
-	         by =  By.xpath(value);
-	         break;
-	     case "cssSelector":
-	         by =  By.cssSelector(value);
-	         break;
-	     case "linkText":
-	         by =  By.linkText(value);
-	         break;
-	     case "name":
-	         by =  By.name(value);
-	         break;
-	     case "partialLinkText":
-	         by =  By.partialLinkText(value);
-	        
-	         break;
-	     default:
-	         throw new Exception("locator : " + selector + " not found!!!");
-	 }
-		return signUpusername1();
-	}
-	public WebElement signUppassword() throws Exception {
-		
-		 switch (selector) {
-	     case "id":
-	         by =  By.id(value);
-
-	         break;
-	     case "className":
-	         by =  By.className(value);
-	         break;
-	     case "tagName":
-	         by =  By.tagName(value);
-	         break;
-	     case "xpath":
-	         by =  By.xpath(value);
-	         break;
-	     case "cssSelector":
-	         by =  By.cssSelector(value);
-	         break;
-	     case "linkText":
-	         by =  By.linkText(value);
-	         break;
-	     case "name":
-	         by =  By.name(value);
-	         break;
-	     case "partialLinkText":
-	         by =  By.partialLinkText(value);
-	        
-	         break;
-	     default:
-	         throw new Exception("locator : " + selector + " not found!!!");
-	 }
-		return signUppassword();
-}
-public WebElement signUpBtn() throws Exception {
-	 switch (selector) {
-     case "id":
-         by =  By.id(value);
-
-         break;
-     case "className":
-         by =  By.className(value);
-         break;
-     case "tagName":
-         by =  By.tagName(value);
-         break;
-     case "xpath":
-         by =  By.xpath(value);
-         break;
-     case "cssSelector":
-         by =  By.cssSelector(value);
-         break;
-     case "linkText":
-         by =  By.linkText(value);
-         break;
-     case "name":
-         by =  By.name(value);
-         break;
-     case "partialLinkText":
-         by =  By.partialLinkText(value); 
-         break;
-     default:
-         throw new Exception("locator : " + selector + " not found!!!");
- }
-		return signUpBtn();
-	}
-}
-	
-//Admin123$
-
+        <Username>Dhanya</Username>  
+        <Password>Dhanya1234</Password>
+        
+        <Username>kkghjkhjsgs</Username>  
+        <Password>123456</Password>
+        */
+/*
+ *  <Username>shammu</Username>  
+        <Password>shammu1234</Password>
+        
+        <Username>Dhanya</Username>  
+        <Password>Dhanya1234</Password>
+        */

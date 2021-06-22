@@ -7,11 +7,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class NewTab extends ActionHandlers {
+import StepDefinitions.StepDefnition;
 
+public class NewTab extends ActionHandlers{  
+	String Locator = null;
+	String Address = null;
 
 	@Test
-	public void newTab() {
+	public void newTab() 
+	{
 		// New tab
 		
 		if(Locator=="xpath") {
@@ -26,6 +30,7 @@ public class NewTab extends ActionHandlers {
 		  }
 		  else if(Locator=="id") {
 			  WebElement ele = driver.findElement(By.id(Address));
+			  System.out.println("qwertyuio");
 				Actions action = new Actions(driver);
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 		  }
@@ -54,5 +59,6 @@ public class NewTab extends ActionHandlers {
 			  Actions action = new Actions(driver);
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 		  }
-}
+
+	}
 }

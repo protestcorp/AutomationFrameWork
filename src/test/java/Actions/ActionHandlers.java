@@ -12,10 +12,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import Actions.KeyboardAction;
 import Actions.MouseAction;
+import StepDefinitions.StepDefnition;
+//import Actions.DoubleClick;
 
-import Actions.DoubleClick;
-
-public class ActionHandlers {
+public class ActionHandlers  {
 	WebDriver driver;
 	String Locator;
 	String Address;
@@ -27,7 +27,11 @@ public class ActionHandlers {
 		System.setProperty("webdriver.chrome.driver", "E:\\\\Selenium\\\\Drivers\\\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.google.co.in");
-
+		
+		
+		
+		
+/*
 		String action = "newTab";
 
 		switch (action) {
@@ -36,6 +40,9 @@ public class ActionHandlers {
 			NewTab N = new NewTab();
 			N.newTab();
 			break;
+		
+	
+
 
 		case "copyPaste":
 			CopyPaste C = new CopyPaste();
@@ -95,30 +102,16 @@ public class ActionHandlers {
 			T.verifyText();
 			break;
 			
+		}
+		*/
+		
+	}
+
 	
-			
 
 		}
 
-		/*
-		 * FileReader f = new
-		 * FileReader("C:\\Users\\Likith\\Desktop\\PRO-TEST\\Locators.txt");
-		 * BufferedReader b = new BufferedReader(f);
-		 * 
-		 * String username; String password;
-		 * 
-		 * while((username = b.readLine())!=null) { password = b.readLine();
-		 * System.out.println(username); System.out.println(password);
-		 * 
-		 * if(username=="XPATH") { driver.findElement(By.xpath("")); } else
-		 * if(username=="CSS") { driver.findElement(By.cssSelector("")); } else
-		 * if(username=="ID") { driver.findElement(By.id("")); } if(password=="XPATH") {
-		 * driver.findElement(By.xpath("")); } else if(password=="CSS") {
-		 * driver.findElement(By.cssSelector("")); } else if(password=="ID") {
-		 * driver.findElement(By.id("")); }
-		 * 
-		 * }
-		 */
-	}
+	
+	
 
-}
+

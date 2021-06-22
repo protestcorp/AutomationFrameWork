@@ -13,14 +13,7 @@
         <Password>kanch1234</Password>
         
         
-        <Username>shammu</Username>  
-        <Password>shammu1234</Password>
-        
-        <Username>Dhanya</Username>  
-        <Password>Dhanya1234</Password>
-        
-        <Username>kkghjkhjsgs</Username>  
-        <Password>123456</Password>
+       
                 
     </SignIn>  
 
@@ -34,11 +27,7 @@
         <Username>Kanchana</Username>  
         <Password>kanch1234</Password>
         
-        <Username>shammu</Username>  
-        <Password>shammu1234</Password>
-        
-        <Username>Dhanya</Username>  
-        <Password>Dhanya1234</Password>
+       
         
     </Login> 
   

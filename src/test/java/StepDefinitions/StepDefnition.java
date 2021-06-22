@@ -9,6 +9,11 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import Actions.ActionHandlers;
+import Actions.CopyPaste;
+import Actions.KeyboardAction;
+import Actions.NewTab;
+import CucumberOptionsss.ActionXML;
 import CucumberOptionsss.XMLHandler;
 import ObjectRepository.Homepage;
 import ObjectRepository.Login;
@@ -22,15 +27,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 @RunWith(Cucumber.class)
-	public class StepDefnition extends Base {
+	public class StepDefnition extends KeyboardAction {
 	
 	static String username;
 	static String password;
 	
-	WebDriver driver;
+	String Address;
+	String Locator ;
+	
+	protected WebDriver driver;
 	    @Given("^Initialize browser$")
 	    public void initialize_browser() throws IOException, InterruptedException  {
 	    	 driver = initializeDriver();
+	    	
 	    }
 	    @And("^launching url$")
 	    public void launching_url() {
@@ -78,8 +87,8 @@ import io.cucumber.java.en.When;
 				  System.out.println(username);
 				  System.out.println(password);
 				  */
+	    	
 	   
-
 	    XMLHandler A1 = new XMLHandler();
 
 	    int signInlen = A1.getNumberOfTags("SignIn","Username");
@@ -90,21 +99,31 @@ import io.cucumber.java.en.When;
 	    }
 	    
 	    }
-	    public void checkSignIn(String username,String password) throws Exception {	
-	    	Signup su = new Signup(driver);
-			su.signUpLink1().click();
-			Thread.sleep(3000);
-	    	su.signUpusername1().clear();
-	    	su.signUpusername1().sendKeys(username+getDate());
-
-	    	su.signUppassword().clear();
-	    	su.signUppassword().sendKeys(password);
-	    	
-	    	Thread.sleep(3000);
-	    	su.signUpBtn().click();
-	    	Thread.sleep(3000);
-	    	driver.switchTo().alert().accept();
-	    	Thread.sleep(3000);
+	   
+	    public void checkSignIn(String username,String password) throws Exception {   
+            Signup su = new Signup(driver);
+           
+        	
+        	 su.signUpLink1().clear();
+        	 newTab();
+        	 copyPaste();
+            Thread.sleep(3000);
+            su.signUpusername1().click();
+            Thread.sleep(3000);
+            su.signUpusername1().clear();
+            su.signUpusername1().sendKeys(username + getDate());
+            Thread.sleep(5000);
+           
+            su.signUppassword1().click();
+            Thread.sleep(3000);
+            su.signUppassword1().clear();
+            su.signUppassword1().sendKeys(password );
+            Thread.sleep(5000);
+            su.signUpBtn1().click();
+            Thread.sleep(3000);
+       
+            driver.switchTo().alert().accept();
+            Thread.sleep(5000);
 	   	
 	    }
 	   
@@ -137,26 +156,31 @@ import io.cucumber.java.en.When;
 	    	{
 	    	checkLogIn(A1.getData("Login","Username",i),A1.getData("Login","Password",i));
 	    	}
-	    	 
+	    	ActionXML obj = new ActionXML();
+		    
+	    	Locator= obj.getLocatorType("loginpage", "loginbutton");
+	    	
+	    	Address= obj.getLocatorAddress("loginpage", "loginbutton");
+	    //	newTab(Locator,Address);
 	    	
 			   }
-			   public void checkLogIn(String username,String password) throws Exception {	
-				   Login lo = new Login(driver);
-			    	Thread.sleep(3000);
-			    	lo.LogInLink().click();
-			    	Thread.sleep(3000);
-			    	lo.LogInUsername().clear();
-			    	lo.LogInUsername().sendKeys(username);
-			    	lo.LogInPassword().clear();
-			    	lo.LogInPassword().sendKeys(password);
-			    	
-			    	Thread.sleep(3000);
-			    	lo.LogInSignUpbtn().click();
-			    	Thread.sleep(3000);
-			    	
-			    /*	driver.switchTo().alert().accept();
-			    	Thread.sleep(3000); */
-			    	lo.LogOut().click();
+	    public void checkLogIn(String username,String password) throws Exception {   
+            Login lo = new Login(driver);
+             Thread.sleep(5000);
+             lo.LogInLink().click();
+             Thread.sleep(3000);
+             lo.LogInUsername().clear();
+             lo.LogInUsername().sendKeys(username);
+             Thread.sleep(3000);
+             lo.LogInPassword().clear();
+             lo.LogInPassword().sendKeys(password);
+            
+             Thread.sleep(3000);
+             lo.LogInSignUpbtn().click();
+             Thread.sleep(3000);
+       
+             lo.LogOut().click();
+             Thread.sleep(5000);
 			   }
 
 	    @And("^Home page is displayed$")

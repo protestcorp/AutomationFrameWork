@@ -1,6 +1,5 @@
 package ObjectRepository;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,234 +7,252 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-public class Login 
-{
+import CucumberOptionsss.PageObjectHandler;
+
+public class Login extends PageObjectHandler {
 	/*
-   @FindBy(id="login2")
-   WebElement LoginLink;
-   
-   @FindBy(id="loginusername")
-   WebElement username;
-   
-   @FindBy(id="loginpassword")
-   WebElement password;
-   
-   @FindBy(xpath="//button[@onclick='logIn()']")
-   WebElement loginbtn;
-   
-   @FindBy(xpath="//a[@id='logout2']")
-   WebElement logout;
-   
-   WebDriver driver;
-   public Login(WebDriver driver) {
-		
-	 
-	   PageFactory.initElements(driver,this);
+	 * @FindBy(id="login2") WebElement LoginLink;
+	 * 
+	 * @FindBy(id="loginusername") WebElement username;
+	 * 
+	 * @FindBy(id="loginpassword") WebElement password;
+	 * 
+	 * @FindBy(xpath="//button[@onclick='logIn()']") WebElement loginbtn;
+	 * 
+	 * @FindBy(xpath="//a[@id='logout2']") WebElement logout;
+	 * 
+	 * WebDriver driver; public Login(WebDriver driver) {
+	 * 
+	 * 
+	 * PageFactory.initElements(driver,this); }
+	 * 
+	 * 
+	 * public WebElement LogInLink() { return LoginLink;
+	 * 
+	 * }
+	 * 
+	 * public WebElement LogInUsername() { return username; } public WebElement
+	 * LogInPassword() { return password; } public WebElement LogInSignUpbtn() {
+	 * return loginbtn; } public WebElement LogOut() { return logout; }
+	 */
+
+	WebElement locator = null;
+	WebDriver driver;
+
+	public Login(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-	
-   
-   public WebElement LogInLink() {
-	   return LoginLink;
-	  
-   }
-   
-   public WebElement LogInUsername() {
-	   return username;
-   }
-	   public WebElement LogInPassword() {
-		   return password;
-	      }
-	   public WebElement LogInSignUpbtn() {
-		   return loginbtn;
-	   }
-   public WebElement LogOut() {
-	   return logout;
-   }
- */
-	
-	 WebDriver driver;
-	   public Login(WebDriver driver) {
-			
-		 
-		   PageFactory.initElements(driver,this);
+
+	PageObjectHandler poj = new PageObjectHandler();
+
+	public WebElement LogInLink() throws Exception {
+		String selector = poj.getselector("Login", "LogInLink");
+		String value = poj.getvalue("Login", "LogInLink", 0);
+		switch (selector) {
+		case "id":
+			locator = driver.findElement(By.id(value));
+			// by = By.id(value);
+			break;
+		case "className":
+			locator = driver.findElement(By.className(value));
+			// by = By.className(value);
+			break;
+		case "tagName":
+			locator = driver.findElement(By.tagName(value));
+			// by = By.tagName(value);
+			break;
+		case "xpath":
+			locator = driver.findElement(By.xpath(value));
+			// by = By.xpath(value);
+			break;
+		case "cssSelector":
+			locator = driver.findElement(By.cssSelector(value));
+			// by = By.cssSelector(value);
+			break;
+		case "linkText":
+			locator = driver.findElement(By.linkText(value));
+			// by = By.linkText(value);
+			break;
+		case "name":
+			locator = driver.findElement(By.name(value));
+			// by = By.name(value);
+			break;
+		case "partialLinkText":
+			locator = driver.findElement(By.partialLinkText(value));
+			// by = By.partialLinkText(value);
+			break;
+		default:
+			throw new Exception("locator : " + selector + " not found!!!");
 		}
-		
-		By by;
+		return locator;
+	}
 
-		String selector = "id";
-		String value ="signin2";
-	   
-	   public WebElement LogInLink() throws Exception {
-		
-			 switch (selector) {
-		     case "id":
-		         by =  By.id(value);
+	public WebElement LogInUsername() throws Exception {
+		String selector = poj.getselector("Login", "LogInUsername");
+		String value = poj.getvalue("Login", "LogInUsername", 0);
+		switch (selector) {
+		case "id":
+			locator = driver.findElement(By.id(value));
+			// by = By.id(value);
+			break;
+		case "className":
+			locator = driver.findElement(By.className(value));
+			// by = By.className(value);
+			break;
+		case "tagName":
+			locator = driver.findElement(By.tagName(value));
+			// by = By.tagName(value);
+			break;
+		case "xpath":
+			locator = driver.findElement(By.xpath(value));
+			// by = By.xpath(value);
+			break;
+		case "cssSelector":
+			locator = driver.findElement(By.cssSelector(value));
+			// by = By.cssSelector(value);
+			break;
+		case "linkText":
+			locator = driver.findElement(By.linkText(value));
+			// by = By.linkText(value);
+			break;
+		case "name":
+			locator = driver.findElement(By.name(value));
+			// by = By.name(value);
+			break;
+		case "partialLinkText":
+			locator = driver.findElement(By.partialLinkText(value));
+			// by = By.partialLinkText(value);
+			break;
+		default:
+			throw new Exception("locator : " + selector + " not found!!!");
+		}
+		return locator;
+	}
 
-		         break;
-		     case "className":
-		         by =  By.className(value);
-		         break;
-		     case "tagName":
-		         by =  By.tagName(value);
-		         break;
-		     case "xpath":
-		         by =  By.xpath(value);
-		         break;
-		     case "cssSelector":
-		         by =  By.cssSelector(value);
-		         break;
-		     case "linkText":
-		         by =  By.linkText(value);
-		         break;
-		     case "name":
-		         by =  By.name(value);
-		         break;
-		     case "partialLinkText":
-		         by =  By.partialLinkText(value);
-		        
-		         break;
-		     default:
-		         throw new Exception("locator : " + selector + " not found!!!");
-		 }
-		   return LogInLink();
-		  
-	   }
-	   
-	   public WebElement LogInUsername() throws Exception {
-		   
-		   switch (selector) {
-		     case "id":
-		         by =  By.id(value);
+	public WebElement LogInPassword() throws Exception {
+		String selector = poj.getselector("Login", "LogInPassword");
+		String value = poj.getvalue("Login", "LogInPassword", 0);
+		switch (selector) {
+		case "id":
+			locator = driver.findElement(By.id(value));
+			// by = By.id(value);
+			break;
+		case "className":
+			locator = driver.findElement(By.className(value));
+			// by = By.className(value);
+			break;
+		case "tagName":
+			locator = driver.findElement(By.tagName(value));
+			// by = By.tagName(value);
+			break;
+		case "xpath":
+			locator = driver.findElement(By.xpath(value));
+			// by = By.xpath(value);
+			break;
+		case "cssSelector":
+			locator = driver.findElement(By.cssSelector(value));
+			// by = By.cssSelector(value);
+			break;
+		case "linkText":
+			locator = driver.findElement(By.linkText(value));
+			// by = By.linkText(value);
+			break;
+		case "name":
+			locator = driver.findElement(By.name(value));
+			// by = By.name(value);
+			break;
+		case "partialLinkText":
+			locator = driver.findElement(By.partialLinkText(value));
+			// by = By.partialLinkText(value);
+			break;
+		default:
+			throw new Exception("locator : " + selector + " not found!!!");
+		}
+		return locator;
+	}
 
-		         break;
-		     case "className":
-		         by =  By.className(value);
-		         break;
-		     case "tagName":
-		         by =  By.tagName(value);
-		         break;
-		     case "xpath":
-		         by =  By.xpath(value);
-		         break;
-		     case "cssSelector":
-		         by =  By.cssSelector(value);
-		         break;
-		     case "linkText":
-		         by =  By.linkText(value);
-		         break;
-		     case "name":
-		         by =  By.name(value);
-		         break;
-		     case "partialLinkText":
-		         by =  By.partialLinkText(value);
-		        
-		         break;
-		     default:
-		         throw new Exception("locator : " + selector + " not found!!!");
-		 }
-		   return LogInUsername();
-	   }
-		   public WebElement LogInPassword() throws Exception {
-			   
-			   switch (selector) {
-			     case "id":
-			         by =  By.id(value);
+	public WebElement LogInSignUpbtn() throws Exception {
+		String selector = poj.getselector("Login", "LogInSignUpbtn");
+		String value = poj.getvalue("Login", "LogInSignUpbtn", 0);
+		switch (selector) {
+		case "id":
+			locator = driver.findElement(By.id(value));
+			// by = By.id(value);
+			break;
+		case "className":
+			locator = driver.findElement(By.className(value));
+			// by = By.className(value);
+			break;
+		case "tagName":
+			locator = driver.findElement(By.tagName(value));
+			// by = By.tagName(value);
+			break;
+		case "xpath":
+			locator = driver.findElement(By.xpath(value));
+			// by = By.xpath(value);
+			break;
+		case "cssSelector":
+			locator = driver.findElement(By.cssSelector(value));
+			// by = By.cssSelector(value);
+			break;
+		case "linkText":
+			locator = driver.findElement(By.linkText(value));
+			// by = By.linkText(value);
+			break;
+		case "name":
+			locator = driver.findElement(By.name(value));
+			// by = By.name(value);
+			break;
+		case "partialLinkText":
+			locator = driver.findElement(By.partialLinkText(value));
+			// by = By.partialLinkText(value);
+			break;
+		default:
+			throw new Exception("locator : " + selector + " not found!!!");
+		}
+		return locator;
+	}
 
-			         break;
-			     case "className":
-			         by =  By.className(value);
-			         break;
-			     case "tagName":
-			         by =  By.tagName(value);
-			         break;
-			     case "xpath":
-			         by =  By.xpath(value);
-			         break;
-			     case "cssSelector":
-			         by =  By.cssSelector(value);
-			         break;
-			     case "linkText":
-			         by =  By.linkText(value);
-			         break;
-			     case "name":
-			         by =  By.name(value);
-			         break;
-			     case "partialLinkText":
-			         by =  By.partialLinkText(value);
-			        
-			         break;
-			     default:
-			         throw new Exception("locator : " + selector + " not found!!!");
-			 }
-			   return LogInPassword();
-		      }
-		   public WebElement LogInSignUpbtn() throws Exception {
-			   
-			   switch (selector) {
-			     case "id":
-			         by =  By.id(value);
-
-			         break;
-			     case "className":
-			         by =  By.className(value);
-			         break;
-			     case "tagName":
-			         by =  By.tagName(value);
-			         break;
-			     case "xpath":
-			         by =  By.xpath(value);
-			         break;
-			     case "cssSelector":
-			         by =  By.cssSelector(value);
-			         break;
-			     case "linkText":
-			         by =  By.linkText(value);
-			         break;
-			     case "name":
-			         by =  By.name(value);
-			         break;
-			     case "partialLinkText":
-			         by =  By.partialLinkText(value);
-			        
-			         break;
-			     default:
-			         throw new Exception("locator : " + selector + " not found!!!");
-			 }
-			   return LogInSignUpbtn();
-		   }
-	   public WebElement LogOut() throws Exception {
-		   
-		   switch (selector) {
-		     case "id":
-		         by =  By.id(value);
-
-		         break;
-		     case "className":
-		         by =  By.className(value);
-		         break;
-		     case "tagName":
-		         by =  By.tagName(value);
-		         break;
-		     case "xpath":
-		         by =  By.xpath(value);
-		         break;
-		     case "cssSelector":
-		         by =  By.cssSelector(value);
-		         break;
-		     case "linkText":
-		         by =  By.linkText(value);
-		         break;
-		     case "name":
-		         by =  By.name(value);
-		         break;
-		     case "partialLinkText":
-		         by =  By.partialLinkText(value);
-		        
-		         break;
-		     default:
-		         throw new Exception("locator : " + selector + " not found!!!");
-		 }
-		   return LogOut();
-	   }
+	public WebElement LogOut() throws Exception {
+		String selector = poj.getselector("Login", "LogOut");
+		String value = poj.getvalue("Login", "LogOut", 0);
+		switch (selector) {
+		case "id":
+			locator = driver.findElement(By.id(value));
+			// by = By.id(value);
+			break;
+		case "className":
+			locator = driver.findElement(By.className(value));
+			// by = By.className(value);
+			break;
+		case "tagName":
+			locator = driver.findElement(By.tagName(value));
+			// by = By.tagName(value);
+			break;
+		case "xpath":
+			locator = driver.findElement(By.xpath(value));
+			// by = By.xpath(value);
+			break;
+		case "cssSelector":
+			locator = driver.findElement(By.cssSelector(value));
+			// by = By.cssSelector(value);
+			break;
+		case "linkText":
+			locator = driver.findElement(By.linkText(value));
+			// by = By.linkText(value);
+			break;
+		case "name":
+			locator = driver.findElement(By.name(value));
+			// by = By.name(value);
+			break;
+		case "partialLinkText":
+			locator = driver.findElement(By.partialLinkText(value));
+			// by = By.partialLinkText(value);
+			break;
+		default:
+			throw new Exception("locator : " + selector + " not found!!!");
+		}
+		return locator;
+	}
 }
-

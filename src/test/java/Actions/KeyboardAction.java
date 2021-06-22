@@ -20,7 +20,7 @@ public class KeyboardAction extends Base {
 	WebDriver driver;
 	String Locator;
 	String Address;
-	
+	/*
 	@Test
 	public void LaunchingBrowser() throws IOException, InterruptedException {
 		driver = initializeDriver();
@@ -28,7 +28,7 @@ public class KeyboardAction extends Base {
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
 	}
-	
+	*/
 	@Test
 	public void newTab() {
 		// New tab

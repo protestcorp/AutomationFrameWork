@@ -13,6 +13,7 @@ public class Caps extends ActionHandlers{
 	@Test
 	public void capsActions() {
 		// write text's in CAP's
+		
     String sendkeys = null;
 		if(Locator=="xpath") {
 			WebElement ele =  driver.findElement(By.xpath(Address));

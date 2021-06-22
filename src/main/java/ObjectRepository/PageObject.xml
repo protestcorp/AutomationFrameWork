@@ -1,0 +1,73 @@
+<?xml version="1.0"?>  
+<Pageobjectmodel>
+
+ 
+
+    <Homepage>
+        
+        <navBar>
+            <selector>id</selector>
+            <value>navbarExample</value>
+        </navBar>
+            
+    </Homepage>
+    
+    
+    <Signup>
+    
+        <signUpLink1>
+            <selector>id</selector>
+            <value>signin2</value>
+        </signUpLink1>    
+        
+        <signUpusername1>
+            <selector>id</selector>
+            <value>sign-username</value>
+        </signUpusername1>
+        
+        <signUppassword1>
+            <selector>id</selector>
+            <value>sign-password</value>
+        </signUppassword1>
+        
+        <signUpBtn1>
+            <selector>xpath</selector>
+            <value>//button[contains(text(),'Sign up')]</value>
+        </signUpBtn1>
+    
+    </Signup>
+    
+        
+    <Login>
+    
+        <LogInLink>
+            <selector>id</selector>
+            <value>login2</value>
+        </LogInLink>
+        
+        <LogInUsername>
+            <selector>id</selector>
+            <value>loginusername</value>
+        </LogInUsername>
+        
+        <LogInPassword>
+            <selector>id</selector>
+            <value>loginpassword</value>
+        </LogInPassword>
+        
+        <LogInSignUpbtn>
+            <selector>xpath</selector>
+            <value>//button[contains(text(),'Log in')]</value>
+        </LogInSignUpbtn>
+        
+        <LogOut>
+            <selector>id</selector>
+            <value>logout2</value>
+        </LogOut>
+
+ 
+
+    </Login>
+    
+    
+</Pageobjectmodel>
