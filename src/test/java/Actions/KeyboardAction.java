@@ -1,9 +1,9 @@
 package Actions;
 
-import java.io.IOException;
+
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Stream;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,7 +11,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
+
 import org.testng.annotations.Test;
 
 import Project.FrameWork.Base;
@@ -84,6 +84,7 @@ public class KeyboardAction extends Base {
 		// Copy and paste any info
  String source = null ;
  String destination = null;
+ 
 		if(Locator=="xpath") {
 			WebElement sourcetext = driver.findElement(By.xpath(source));
 			WebElement destinationtext = driver.findElement(By.xpath(destination));
@@ -401,7 +402,7 @@ public class KeyboardAction extends Base {
 	public void doubleClick() throws InterruptedException {
 
 		if(Locator=="xpath") {
-			WebElement trialaction =	  driver.findElement(By.xpath(Address));
+			WebElement trialaction = driver.findElement(By.xpath(Address));
 			Actions action = new Actions(driver);
 			action.doubleClick(trialaction).perform();
 			Thread.sleep(3000);
@@ -667,8 +668,26 @@ public class KeyboardAction extends Base {
 		js.executeScript(value);
 	}
 	
-	// verification of text
+	@Test
+	public void verifyText() {
+		
+		String Expected = null;
+		
+		WebElement element = driver.findElement(By.xpath(Address));
+
+		String text = element.getText();
+
+		System.out.println("Text obtained is" + text);
+
+		if (text.contains(Expected)) {
+			System.out.println("Expected text is obtained");
+		} else {
+
+			System.out.println("Expected text is not obtained");
+
 		}
+		}
+}
 		
 	
 
