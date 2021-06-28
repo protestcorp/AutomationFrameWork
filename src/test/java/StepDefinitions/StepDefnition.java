@@ -1,7 +1,6 @@
 package StepDefinitions;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.util.Date;
 
@@ -9,21 +8,20 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import Actions.ActionHandlers;
-import Actions.CopyPaste;
+
 import Actions.KeyboardAction;
-import Actions.NewTab;
+
 import CucumberOptionsss.ActionXML;
 import CucumberOptionsss.XMLHandler;
 import ObjectRepository.Homepage;
 import ObjectRepository.Login;
 
 import ObjectRepository.Signup;
-import Project.FrameWork.Base;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+
 import io.cucumber.java.en.When;
 
 @RunWith(Cucumber.class)
@@ -46,47 +44,13 @@ import io.cucumber.java.en.When;
 	    	driver.get(url);
 			driver.manage().window().maximize();
 	    }
-	    /*
-	    @And("^click on Signup link$")
-	    public void click_on_signup_link() throws InterruptedException  {
-	    	Signup su = new Signup(driver);
-			su.signUpLink1().click();
-			Thread.sleep(3000);
-	    }
-	    */
-	    /*
-	    @Given("^Requesting data$")
-	    public static void requesting_data() throws IOException, InterruptedException {
-	    	
-		FileReader f = new FileReader("C:\\Users\\Likith\\Desktop\\PRO-TEST\\Frameworkkeypoints.txt");
-		   BufferedReader b = new BufferedReader(f);
-		   
-		//   String username;
-		   Thread.sleep(3000);
-		   while((username = b.readLine())!=null) {
-			  password = b.readLine();
-			  System.out.println(username);
-			  System.out.println(password);
-			  
-		   }
-}*/
+	   
 	/*    @When("^User register into application with (.+) and (.+)$")
 	    public void user_register_into_application_with_and(String username, String password) throws InterruptedException, NullPointerException {
 	 */
 	    @When("^User register into application with username and password$")
 	    public void user_register_into_application_with_username_and_password() throws Exception  {
-	   	
-	    /*	
-	    	FileReader f = new FileReader("C:\\Users\\Likith\\Desktop\\PRO-TEST\\Frameworkkeypoints.txt");
-			   BufferedReader b = new BufferedReader(f);
-			   
-			//   String username;
-			   Thread.sleep(3000);
-			   while((username = b.readLine())!=null) {
-				  password = b.readLine();
-				  System.out.println(username);
-				  System.out.println(password);
-				  */
+
 	    	
 	   
 	    XMLHandler A1 = new XMLHandler();
@@ -107,6 +71,8 @@ import io.cucumber.java.en.When;
         	 su.signUpLink1().clear();
         	 newTab();
         	 copyPaste();
+        	 dragAndDrop();
+        	 hoverAction();
             Thread.sleep(3000);
             su.signUpusername1().click();
             Thread.sleep(3000);

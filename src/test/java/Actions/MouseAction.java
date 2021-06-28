@@ -11,9 +11,11 @@ import org.testng.annotations.Test;
 
 import Project.FrameWork.Base;
 
-public class MouseAction extends Base{
+public class MouseAction extends KeyboardAction{
 	WebDriver driver;
-	
+	String Locator;
+	String Address;
+	/*
 	@Test
 	public void LaunchingBrowser() throws IOException, InterruptedException {
 		driver = initializeDriver();
@@ -21,7 +23,7 @@ public class MouseAction extends Base{
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
 	}
-/*	
+*/
 	@Test
 	public void hoverActionn() throws InterruptedException {
 
@@ -54,8 +56,8 @@ public class MouseAction extends Base{
 		action.moveToElement(ele).perform();
 		Thread.sleep(3000);
 	}
-	}
-	/*
+	
+	
 	@Test
 	public void doubleClick() throws InterruptedException {
 
@@ -88,7 +90,7 @@ public class MouseAction extends Base{
 		action.doubleClick(trialaction).perform();
 		Thread.sleep(3000);
 	}
-	/*
+	
 	@Test
 	public void dragAndDrop() throws InterruptedException {
 	
@@ -162,8 +164,7 @@ public class MouseAction extends Base{
 		   Thread.sleep(3000);
 		   action.clickAndHold().perform(); 
 	}
-	*/
-	/*
+	
 	@Test
 	public void contextClick() {
 
@@ -225,5 +226,5 @@ public class MouseAction extends Base{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,1000)");
 	}
-*/
+
 }

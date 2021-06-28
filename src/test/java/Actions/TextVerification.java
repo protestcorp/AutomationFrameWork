@@ -6,10 +6,13 @@ import org.testng.annotations.Test;
 
 public class TextVerification extends ActionHandlers {
 
-	String Expected;
+	
 
 	@Test
 	public void verifyText() {
+		
+		String Expected = null;
+		
 		WebElement element = driver.findElement(By.xpath(Address));
 
 		String text = element.getText();
