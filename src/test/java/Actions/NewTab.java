@@ -19,9 +19,22 @@ public class NewTab extends ActionHandlers{
 		// New tab
 		
 		if(Locator=="xpath") {
-			WebElement ele =  driver.findElement(By.xpath(Address));
-			Actions action = new Actions(driver);
+			
+		    try{
+		        WebDriverWait wait = new WebDriverWait(driver, 5);
+		        WebElement ele =  driver.findElement(By.xpath(Address));
+		    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+		    Actions action = new Actions(driver);
 			action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
+		    }
+		    catch(Exception e)
+		    {
+		    Assert.assertTrue(false);
+		    }
+		    }
+		
+			
+			
 		  }
 		  else if(Locator=="cssSelector") {
 			  WebElement ele =  driver.findElement(By.cssSelector(Address));

@@ -7,12 +7,29 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class TextBox {
+public class TextBox extends ActionUtilities {
 
 	WebDriver driver;
 	String Locator;
 	String Address;
 
+	public void clickOnTextBox() throws Exception {
+		click();
+	}
+	public void clearOnTextBox() throws Exception {
+		clear();
+	}
+		public void verifyTextOnTextBox() throws Exception {
+			textVerify();
+	}
+		public void copyPasteOnTextBox() throws Exception {
+			copyPaste();
+		}
+	public void autoSuggestOnTextBox() throws Exception  {
+		autoSuggetion();
+	}
+		}
+	/*
 	@Test
 	public void clickOnTextBox() {
 
@@ -157,3 +174,4 @@ public class TextBox {
 		  }
 	}
 }
+*/

@@ -72,7 +72,9 @@ public class KeyboardAction extends Base {
 			  WebElement ele =  driver.findElement(By.partialLinkText(Address));
 			  Actions action = new Actions(driver);
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
+				
 		  }
+		 
 	/*	  
 	
 		WebElement ele = driver.findElement(By.id("nav-link-accountList"));

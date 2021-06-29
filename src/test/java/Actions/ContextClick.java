@@ -12,9 +12,22 @@ public class ContextClick extends ActionHandlers {
 	public void contextClick() {
 
 		if(Locator=="xpath") {
-			WebElement element =  driver.findElement(By.xpath(Address));
+			
+		    try{
+		        WebDriverWait wait = new WebDriverWait(driver, 3);
+		        WebElement ele =  driver.findElement(By.xpath(Address));
+		    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(ele));
 			Actions action = new Actions(driver);
 			action.contextClick(element).perform();
+		    }
+		    catch(Exception e)
+		    {
+		    Assert.assertTrue(false);
+		    }
+		    
+		}
+			
+		
 		  }
 		  else if(Locator=="cssSelector") {
 			  WebElement element =  driver.findElement(By.cssSelector(Address));

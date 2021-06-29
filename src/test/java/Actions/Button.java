@@ -10,12 +10,38 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Button  extends KeyboardAction{
+public class Button  extends ActionUtilities{
 
 	WebDriver driver;
 	String Locator;
 	String Address;
-
+	public void clickOnButton() throws Exception {
+		click();
+		
+	}
+	public void doubleClickOnButton() throws Exception {
+		doubleClick();
+		}
+	
+	public void hoverOnButton() throws Exception {
+		hover();
+	}
+		
+		public void contextClickOnButton() throws Exception {
+			contextClick();
+		}
+			public void clickAndHoldOnButton() throws Exception {
+				clickAndHold();
+		}
+			public void verifyTextOnButton() throws Exception {
+				textVerify();
+				
+			}
+			public void newTabOnButton() throws Exception {
+				newTab();
+			}
+	}
+	/*
 	@Test
 	public void clickOnButton() {
 	
@@ -315,3 +341,4 @@ public class Button  extends KeyboardAction{
 		}
 	}
 }
+*/

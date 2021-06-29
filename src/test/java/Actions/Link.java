@@ -7,13 +7,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class Link {
+public class Link extends ActionUtilities {
 	WebDriver driver;
 	String Locator;
 	String Address;
 
+	
+	public void clickOnLink() throws Exception {
+		click();
+	}
+	public void newTabOnLink() throws Exception {
+		newTab();
+		
+	}
+	public void copyPasteOnLink() throws Exception {
+		copyPaste();
+		
+	}
+	public void linkVerify() throws Exception {
+		textVerify();
+		
+	}
+}
+/*
 	@Test
 	public void clickOnLink() {
+		
 
 		if (Locator == "xpath") {
 			driver.findElement(By.xpath(Address)).click();
@@ -170,3 +189,4 @@ public class Link {
 		}
 		}
 }
+*/

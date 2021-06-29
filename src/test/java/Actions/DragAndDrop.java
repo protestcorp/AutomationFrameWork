@@ -13,12 +13,26 @@ public class DragAndDrop extends ActionHandlers{
 	String fromm = null;
 	String Too = null;
 		if(Locator=="xpath") {
-			WebElement From=	  driver.findElement(By.xpath(fromm));
-			WebElement To=  driver.findElement(By.xpath(Too));
-			  Actions action=new Actions(driver);					
-	        	Thread.sleep(3000);
-	        action.dragAndDrop(From, To).build().perform();
-	        Thread.sleep(3000);
+			
+		    try{
+		        WebDriverWait wait = new WebDriverWait(driver, 4);
+		    	WebElement From=	  driver.findElement(By.xpath(fromm));
+				WebElement To=  driver.findElement(By.xpath(Too));
+		    WebElement from = wait.until(ExpectedConditions.elementToBeClickable(From));
+		    WebElement to = wait.until(ExpectedConditions.elementToBeClickable(To));
+		    Actions action=new Actions(driver);					
+        	Thread.sleep(3000);
+        action.dragAndDrop(from, to).build().perform();
+        Thread.sleep(3000);
+		    }
+		    catch(Exception e)
+		    {
+		    Assert.assertTrue(false);
+		    }
+		    }
+		
+		
+			 
 		  }
 		  else if(Locator=="cssSelector") {
 			  WebElement From=  driver.findElement(By.cssSelector(fromm));

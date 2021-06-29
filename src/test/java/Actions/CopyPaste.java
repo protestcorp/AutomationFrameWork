@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class CopyPaste extends ActionHandlers {
@@ -14,11 +16,25 @@ public class CopyPaste extends ActionHandlers {
 		String source = null ;
 		 String destination = null;
 		if(Locator=="xpath") {
-			WebElement sourcetext = driver.findElement(By.xpath(source));
-			WebElement destinationtext = driver.findElement(By.xpath(destination));
+			
+		    try{
+		    	WebElement sourcetext = driver.findElement(By.xpath(source));
+				WebElement destinationtext = driver.findElement(By.xpath(destination));
+		        WebDriverWait wait = new WebDriverWait(driver, 4);
+		    WebElement Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
+		    WebElement Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
+
 			Actions action = new Actions(driver);
-			action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
-			action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
+			action.keyDown(Source, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
+			action.keyDown(Destination, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
+		    }
+		    catch(Exception e)
+		    {
+		    Assert.assertTrue(false);
+		    }
+		    }
+		
+			
 		  }
 		  else if(Locator=="cssSelector") {
 			  WebElement sourcetext =   driver.findElement(By.cssSelector(source));

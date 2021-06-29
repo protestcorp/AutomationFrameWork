@@ -12,12 +12,25 @@ public class ClickAndHold extends ActionHandlers {
 	public void clickAndHold()throws InterruptedException {
 	
 		if(Locator=="xpath") {
-			WebElement titleC =  driver.findElement(By.xpath(Address));
-			 Actions action = new Actions(driver); 
-				Thread.sleep(3000);
-					   action.moveToElement(titleC);
-					   Thread.sleep(3000);
-					   action.clickAndHold().perform(); 
+			
+		    try{
+		        WebDriverWait wait = new WebDriverWait(driver, 3);
+		        WebElement titleC =  driver.findElement(By.xpath(Address));
+		    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(titleC));
+		    Actions action = new Actions(driver); 
+			Thread.sleep(3000);
+				   action.moveToElement(titleC);
+				   Thread.sleep(3000);
+				   action.clickAndHold().perform();
+		    }
+		    catch(Exception e)
+		    {
+		    Assert.assertTrue(false);
+		    }
+		    }
+		
+			
+			 
 		  }
 		  else if(Locator=="cssSelector") {
 			  WebElement titleC =  driver.findElement(By.cssSelector(Address));

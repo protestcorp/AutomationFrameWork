@@ -12,10 +12,23 @@ public class Hover extends ActionHandlers {
 	public void hoverAction() throws InterruptedException {
 
 		if(Locator=="xpath") {
-			WebElement ele =   driver.findElement(By.xpath(Address));
-			Actions action = new Actions(driver);
+			
+		    try{
+		        WebDriverWait wait = new WebDriverWait(driver,2);
+		        WebElement ele =   driver.findElement(By.xpath(Address));
+		    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+		    Actions action = new Actions(driver);
 			action.moveToElement(ele).perform();
 			Thread.sleep(3000);
+		    }
+		    catch(Exception e)
+		    {
+		    Assert.assertTrue(false);
+		    }
+		    }
+		
+			
+			
 		  }
 		  else if(Locator=="cssSelector") {
 			  WebElement ele =   driver.findElement(By.cssSelector(Address));
