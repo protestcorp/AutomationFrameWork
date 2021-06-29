@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import StepDefinitions.StepDefnition;
-
+/*
 public class NewTab extends ActionHandlers{  
 	String Locator = null;
 	String Address = null;
@@ -75,3 +75,4 @@ public class NewTab extends ActionHandlers{
 
 	}
 }
+*/

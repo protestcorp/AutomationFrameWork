@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class Hover extends ActionHandlers {
-
+/*
 
 	@Test
 	public void hoverAction() throws InterruptedException {
@@ -72,4 +72,5 @@ public class Hover extends ActionHandlers {
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 		  }}
+		  */
 }

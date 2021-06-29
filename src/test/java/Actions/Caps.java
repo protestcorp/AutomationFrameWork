@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class Caps extends ActionHandlers{
 
-
+/*
 	@Test
 	public void capsActions() {
 		// write text's in CAP's
@@ -88,5 +88,5 @@ public class Caps extends ActionHandlers{
 			    click().keyDown(Keys.SHIFT).sendKeys(sendkeys).
 			    build().perform();
 		  }}
-	
+*/	
 }

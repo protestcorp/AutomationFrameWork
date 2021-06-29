@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class ClickAndHold extends ActionHandlers {
-
+/*
 
 	@Test
 	public void clickAndHold()throws InterruptedException {
@@ -88,4 +88,5 @@ public class ClickAndHold extends ActionHandlers {
 					   Thread.sleep(3000);
 					   action.clickAndHold().perform(); 
 		  }}
+		  */
 }

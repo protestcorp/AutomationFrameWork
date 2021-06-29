@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class CopyPaste extends ActionHandlers {
-
+/*
 	@Test
 	public void copyPaste() {
 		// Copy and paste any info
@@ -86,4 +86,5 @@ public class CopyPaste extends ActionHandlers {
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 		  }
 }
+*/
 }

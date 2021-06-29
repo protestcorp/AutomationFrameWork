@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class DragAndDrop extends ActionHandlers{
-
+/*
 
 	@Test
 	public void dragAndDrop() throws InterruptedException {
@@ -90,4 +90,5 @@ public class DragAndDrop extends ActionHandlers{
 	        action.dragAndDrop(From, To).build().perform();
 	        Thread.sleep(3000);
 		  }}
+		  */
 }

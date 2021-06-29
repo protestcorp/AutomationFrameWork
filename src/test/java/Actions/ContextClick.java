@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 public class ContextClick extends ActionHandlers {
-
+/*
 
 	@Test
 	public void contextClick() {
@@ -64,4 +64,5 @@ public class ContextClick extends ActionHandlers {
 			  Actions action = new Actions(driver);
 				action.contextClick(element).perform();
 		  }}
+		  */
 }
