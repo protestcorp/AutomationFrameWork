@@ -109,11 +109,11 @@ public class RadioButton extends ActionUtilities {
          return Locator;
         }
     public void verifyTextOnRadioButton() throws Exception {
-    	textVerify();
+    	textVerify(selector, Address);
     	
     }
     public void hoverRadioButton() throws Exception { 
-    hover();
+    hover(selector, Address);
     }
     
     }

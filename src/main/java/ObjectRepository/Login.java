@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import CucumberOptionsss.PageObjectHandler;
 
-public class Login extends PageObjectHandler {
+public class Login  {
 	/*
 	 * @FindBy(id="login2") WebElement LoginLink;
 	 * 

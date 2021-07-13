@@ -14,23 +14,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import CucumberOptionsss.DataXMLHandler;
 import Project.FrameWork.Base;
 
-public class ActionUtilities {
-	WebDriver driver;
-	String Locator;
-	String Address;
-	String selector = null;
+public class ActionUtilities  extends Base{
+	protected WebDriver driver;
+	WebElement Locator;
+//	String Address;
+//	String selector = null;
 	WebElement element;
 
 	@Test
-	public String newTab() throws Exception {
+	public WebElement newTab(String selector, String Address) throws Exception {
+	  
+	
 		// New tab
 		WebElement ele;
 
 		Actions action = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 5);
-		String Locator = null;
+		
 
 		switch (selector) {
 		case "xpath":
@@ -139,10 +142,10 @@ public class ActionUtilities {
 	 */
 
 	@Test
-	public String copyPaste() throws Exception {
+	public WebElement copyPaste(String selector, String source,String destination ) throws Exception {
 		// Copy and paste any info
-		String source = null;
-		String destination = null;
+	//	String source = null;
+	//	String destination = null;
 		WebElement sourcetext;
 		WebElement destinationtext;
 		Actions action = new Actions(driver);
@@ -285,8 +288,9 @@ public class ActionUtilities {
 	 * Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 	 */
 	//
+	/*
 	@Test
-	public String capsActions() throws Exception {
+	public String upperCase() throws Exception {
 		// write text's in CAP's
 		String sendkeys = null;
 		WebElement ele;
@@ -402,7 +406,7 @@ public class ActionUtilities {
 	 */
 
 	@Test
-	public void hover() throws Exception {
+	public void hover(String selector, String Address) throws Exception {
 
 		WebElement ele;
 		Actions action = new Actions(driver);
@@ -532,7 +536,7 @@ public class ActionUtilities {
 	 */
 
 	@Test
-	public String doubleClick() throws Exception {
+	public WebElement doubleClick(String selector, String Address) throws Exception {
 		WebElement trialaction;
 		Actions action = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 2);
@@ -659,9 +663,9 @@ public class ActionUtilities {
 	 */
 
 	@Test
-	public String dragAndDrop() throws Exception {
-		String fromm = null;
-		String Too = null;
+	public WebElement dragAndDrop(String selector, String fromm ,String Too) throws Exception {
+	//	String fromm = null;
+	//	String Too = null;
 
 		WebElement From;
 		WebElement To;
@@ -812,7 +816,7 @@ public class ActionUtilities {
 	 */
 
 	@Test
-	public String clickAndHold() throws Exception {
+	public WebElement clickAndHold(String selector, String Address) throws Exception {
 		WebElement titleC;
 		Actions action = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 3);
@@ -952,12 +956,12 @@ public class ActionUtilities {
 	 */
 
 	@Test
-	public String contextClick() throws Exception {
+	public WebElement contextClick(String selector, String Address)  {
 		Actions action = new Actions(driver);
 
 		WebElement ele;
 		WebDriverWait wait = new WebDriverWait(driver, 3);
-		String selector = null;
+		
 		switch (selector) {
 		case "xpath":
 
@@ -1057,7 +1061,12 @@ public class ActionUtilities {
 			}
 			break;
 		default:
-			throw new Exception("locator : " + selector + " not found!!!");
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 		return Locator;
@@ -1068,7 +1077,7 @@ public class ActionUtilities {
 	 */
 
 	@Test
-	public void textVerify() throws Exception {
+	public void textVerify(String selector, String Address) throws Exception {
 
 		String Expected = null;
 		WebDriverWait wait = new WebDriverWait(driver, 3);
@@ -1205,7 +1214,7 @@ public class ActionUtilities {
 	}
 
     @Test
-    public String click() throws Exception {
+    public WebElement click(String selector, String Address) throws Exception {
 
  
         switch (selector) {
@@ -1218,8 +1227,9 @@ public class ActionUtilities {
             break;
             
         case "id":
-            driver.findElement(By.id(Address)).click();
-
+    //      Locator =  driver.findElement(By.id(Address));
+          driver.findElement(By.id(Address)).click();
+          
  
 
         break;
@@ -1251,7 +1261,7 @@ public class ActionUtilities {
         }
     
     @Test
-    public String clear() throws Exception {
+    public WebElement clear(String selector, String Address) throws Exception {
 
         switch (selector) {
         case "xpath":
@@ -1294,7 +1304,245 @@ public class ActionUtilities {
         }
     
    
-	public void autoSuggetion() {
+	public String autoSuggetion(String selector, String Address) {
 
-	}
+
+    WebElement Search; 
+    String keyvalue = null; 
+    String Value = null; 
+    String Locator;
+   
+        
+   
+        WebDriverWait wait = new WebDriverWait(driver, 2);
+        
+        switch (selector) {            
+       
+        case "xpath":
+            try {
+    
+        Search = driver.findElement(By.xpath(Address));
+        Search.click();
+        Search.sendKeys(keyvalue);
+        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
+        
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "cssSelector":
+            try {
+    
+        Search = driver.findElement(By.cssSelector(Address));
+        Search.click();
+        Search.sendKeys(keyvalue);
+        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
+        
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "id":
+            try {
+    
+        Search = driver.findElement(By.id(Address));
+        Search.click();
+        Search.sendKeys(keyvalue);
+        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
+        
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "className":
+            try {
+    
+        Search = driver.findElement(By.className(Address));
+        Search.click();
+        Search.sendKeys(keyvalue);
+        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
+        
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "tagName":
+            try {
+    
+        Search = driver.findElement(By.tagName(Address));
+        Search.click();
+        Search.sendKeys(keyvalue);
+        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
+        
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "name":
+            try {
+    
+        Search = driver.findElement(By.name(Address));
+        Search.click();
+        Search.sendKeys(keyvalue);
+        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
+        
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+    
+        case "linkText":
+            try {
+    
+        Search = driver.findElement(By.linkText(Address));
+        Search.click();
+        Search.sendKeys(keyvalue);
+        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
+        
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+
+ 
+
+        case "partialLinkText":
+            try {
+    
+        Search = driver.findElement(By.partialLinkText(Address));
+        Search.click();
+        Search.sendKeys(keyvalue);
+        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
+        
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+                        
+                
+    }
+        return Value;
+    
 }
+	public WebElement sendkeys(String selector, String Address, String Data) throws Exception {
+        Actions action = new Actions(driver);
+        WebElement ele;
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        //String selector = null;
+        switch (selector) {
+        case "xpath":
+            try {
+                ele = driver.findElement(By.xpath(Address));
+                ele.sendKeys(Data);
+                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+            //    action.contextClick(ele).perform();
+                action.click(ele).perform();    
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "cssSelector":
+
+ 
+
+            try {
+
+ 
+
+                ele = driver.findElement(By.cssSelector(Address));
+                ele.sendKeys(Data);
+                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+
+ 
+
+                //action.contextClick(ele).perform();
+                action.click(ele).perform();
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "id":
+            try {
+                ele = driver.findElement(By.id(Address));
+                ele.sendKeys(Data);
+                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+
+ 
+
+                //action.contextClick(ele).perform();
+                action.click(ele).perform();
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "className":
+            try {
+               ele = driver.findElement(By.className(Address));
+                ele.sendKeys(Data);
+                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+                //action.contextClick(ele).perform();
+                action.click(ele).perform();
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "tagName":
+            try {
+                ele = driver.findElement(By.tagName(Address));
+                ele.sendKeys(Data);
+                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+
+                action.click(ele).perform();
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "linkText":
+
+            try {
+
+                ele = driver.findElement(By.linkText(Address));
+                ele.sendKeys(Data);
+                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+
+                //action.contextClick(ele).perform();
+                action.click(ele).perform();
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "name":
+            try {
+                ele = driver.findElement(By.name(Address));
+                ele.sendKeys(Data);
+                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+                //action.contextClick(ele).perform();
+                action.click(ele).perform();
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        case "partialLinkText":
+            try {
+                ele = driver.findElement(By.partialLinkText(Address));
+                ele.sendKeys(Data);
+                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+                //action.contextClick(ele).perform();
+                action.click(ele).perform();
+            } catch (Exception e) {
+                Assert.assertTrue(false);
+            }
+            break;
+        default:
+            throw new Exception("locator : " + selector + " not found!!!");
+        }
+        return Locator;
+    
+
+		
+	}
+
+}
+
+	
+

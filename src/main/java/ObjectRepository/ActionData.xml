@@ -1,22 +1,28 @@
 <?xml version="1.0"?>
 <homepage>
+
 <loginpage>
+
 <loginbutton>
 <Locatortype>id</Locatortype>
 <Address>login2</Address>
 </loginbutton>
+
 <usernametext>
 <Locatortype>id</Locatortype>
 <Address>loginusername</Address>
 </usernametext>
+
 <pwdtext>
 <Locator>id</Locator>
 <Address>loginpassword</Address>
 </pwdtext>
+
 <loginaccept>
 <Locatortype>xpath</Locatortype>
 <Address>//button[contains(text(),'Log in')]</Address>
 </loginaccept>
+
 </loginpage>
 
 <signinpage>
@@ -29,15 +35,17 @@
 <Locatortype>id</Locatortype>
 <Address>sign-username</Address>
 </usernametext>
+
 <pwdtext>
 <Locatortype>id</Locatortype>
 <Address>sign-password</Address>
 </pwdtext>
+
 <signinaccept>
 <Locatortype>xpath</Locatortype>
 <Address>//button[contains(text(),'Sign up')]</Address>
 </signinaccept>
+
 </signinpage>
+
 </homepage>
-
-

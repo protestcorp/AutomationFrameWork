@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class CopyPaste extends ActionHandlers {
+public class CopyPaste  {
 /*
 	@Test
 	public void copyPaste() {

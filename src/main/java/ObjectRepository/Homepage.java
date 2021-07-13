@@ -26,6 +26,7 @@ public class Homepage {
 
 	@FindBy(xpath = "//a[contains(text(),'About us')]")
 	WebElement aboutLink;
+	
 	@FindBy(xpath = "//div[@id='videoModal']/div[1]/div[1]/div[1]/button[1]/span[1]")
 	WebElement aboutclose;
 
@@ -34,11 +35,13 @@ public class Homepage {
 
 	@FindBy(id = "login2")
 	WebElement LoginLink;
+	
 	@FindBy(xpath = "//body/div[@id='logInModal']/div[1]/div[1]/div[1]/button[1]/span[1]")
 	WebElement loginquit;
 
 	@FindBy(id = "signin2")
 	WebElement signUpLink1;
+	
 	@FindBy(xpath = "//div[@id='signInModal']/div[1]/div[1]/div[1]/button[1]/span[1]")
 	WebElement signupquit;
 	

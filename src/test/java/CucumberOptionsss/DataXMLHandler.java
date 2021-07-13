@@ -7,7 +7,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
- public class XMLHandler {
+ public class DataXMLHandler {
 public int getNumberOfTags(String testCaseName, String tagName)
 {
 int length = 0;
@@ -40,6 +40,7 @@ return length;
  public String getData(String testCaseName,String tagName,int index)
 {
 String data = "";
+
 try
 {
 File file = new File("E:\\Automation\\FrameWork\\src\\main\\java\\ObjectRepository\\DATA.xml");
@@ -66,4 +67,6 @@ catch(Exception e)
 System.out.println(e.getMessage());
 }
 return data;
-}}
+}
+
+}

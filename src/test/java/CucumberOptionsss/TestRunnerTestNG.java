@@ -16,7 +16,7 @@ import io.cucumber.testng.CucumberOptions;
 		glue ="StepDefinitions" 
 		
 		)
-@Listeners(CucumberOptionsss.Listeners.class)
+//@Listeners(CucumberOptionsss.Listeners.class)
 public class TestRunnerTestNG extends AbstractTestNGCucumberTests {
 	
 	

@@ -150,12 +150,26 @@ public class CheckBox extends ActionUtilities {
          return Locator;
         }
     
-    public void verifyTextOnRadioButton() throws Exception {
-    	textVerify();
+    public void verifyTextOnRadioButton()  {
+    	try {
+			textVerify(selector, Address);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+       
     	
     }
-    public void hoverRadioButton() throws Exception { 
-    hover();
+    public void hoverRadioButton()  { 
+    try {
+		hover(selector, Address);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+        
     }
     
     }

@@ -30,7 +30,7 @@ public class WebTables extends ActionUtilities {
 		List<WebElement>  colList;
 		List<WebElement> rowList;
 		
-		click();
+		click(selector, Address);
 		
 		switch (selector) {
 		

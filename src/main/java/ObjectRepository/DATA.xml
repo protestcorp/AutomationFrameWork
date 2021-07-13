@@ -30,5 +30,41 @@
        
         
     </Login> 
+    
   
+    <SignInn>  
+        
+        <Username>Pruthvi</Username>  
+        <Password>pru1234</Password>
+        
+     
+        
+       
+                
+    </SignInn>  
+
+ 
+
+    <Loginn>  
+        
+        <Username>Pruthvi</Username>  
+        <Password>pru1234</Password>
+     
+        
+       
+        
+    </Loginn> 
+    
+   
+ <PaymentData>
+ <name>Protest</name>
+ <country>India</country>
+ <city>Banglore</city>
+ <creditcard>12346578</creditcard>
+ <month>7</month>
+ <year>2021</year>
+  </PaymentData>
+    
+    
+
 </class>

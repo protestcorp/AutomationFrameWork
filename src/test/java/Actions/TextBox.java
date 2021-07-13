@@ -10,23 +10,23 @@ import org.testng.annotations.Test;
 public class TextBox extends ActionUtilities {
 
 	WebDriver driver;
-	String Locator;
+	String selector;
 	String Address;
 
 	public void clickOnTextBox() throws Exception {
-		click();
+		click(selector, Address);
 	}
 	public void clearOnTextBox() throws Exception {
-		clear();
+		clear(selector, Address);
 	}
 		public void verifyTextOnTextBox() throws Exception {
-			textVerify();
+			textVerify(selector, Address);
 	}
 		public void copyPasteOnTextBox() throws Exception {
-			copyPaste();
+		//	copyPaste(selector, Address);
 		}
 	public void autoSuggestOnTextBox() throws Exception  {
-		autoSuggetion();
+		autoSuggetion(selector, Address);
 	}
 		}
 	/*

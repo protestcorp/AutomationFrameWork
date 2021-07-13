@@ -56,7 +56,7 @@ import org.openqa.selenium.support.PageFactory;
 	
 		
 
-public class Signup extends PageObjectHandler{
+public class Signup {
 	    
 	    WebElement locator = null;    
 	    WebDriver driver;
