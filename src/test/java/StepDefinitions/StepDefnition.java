@@ -2,9 +2,13 @@ package StepDefinitions;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+
 
 import Actions.ActionUtilities;
 
@@ -34,16 +38,22 @@ public class StepDefnition extends ActionUtilities {
 
 	public WebDriver driver;
 
+	 private static final Logger logger = LogManager.getLogger(StepDefnition.class.getName());
+	 
+	 
 	@Given("^Initialize browser$")
 	public void initialize_browser() throws IOException, InterruptedException {
 		driver = initializeDriver();
-
+     logger.info("Browser is initialized");
 	}
 
 	@And("^launching url$")
-	public void launching_url() {
+	public void launching_url() throws InterruptedException {
 		driver.get(url);
+		logger.info("URL is launched");
 		driver.manage().window().maximize();
+	//	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
 	}
 
 	@When("^User register into application with username and password$")
@@ -58,33 +68,56 @@ public class StepDefnition extends ActionUtilities {
 		}
 
 	}
-
+	
 	public void checkSignIn(String username, String password) throws Exception {
-
+		
 		SignUpPage su = new SignUpPage(driver);
+		
+		logger.info("Sign-in started");
 
 		su.ClickOnSignupLink();
+		logger.info("sign-up link is clicked");
 		
-		su.ClearSignupUsernameTextbox();
-		Thread.sleep(2000);
 
 		su.ClickOnSignupUsernameTextbox();
-		Thread.sleep(1000);
+		waitCall();
+		logger.info("sign-up username is clicked");
+		
+		
 		su.ClearSignupUsernameTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("sign-up username is cleared");
+		
+		
 		su.EnterTextToUserNameTextBox(username + getDate());
-		Thread.sleep(1000);
+		waitCall();
+		logger.info("sign-up username is entered");
+		
+		
 		su.ClickOnSignupPwdTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("sign-up password is clicked");
+		
+		
 		su.ClearSignupPwdTextbox();
-
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("sign-up password is cleared");
+		
+		
 		su.EnterTextToPwdTextBox(password);
-		Thread.sleep(1000);
+	    waitCall();
+		logger.info("sign-up password is entered");
+		
+		
 		su.ClickOnSignupButton();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("sign-up button is clicked");
+		
+		
 		driver.switchTo().alert().accept();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("sign-in session ended");
+		
 
 	}
 
@@ -109,30 +142,48 @@ public class StepDefnition extends ActionUtilities {
 	public void checkLogIn(String username, String password) throws Exception {
 
 		LogInPage lo = new LogInPage(driver);
-		Thread.sleep(2000);
-
+		logger.info("Log-in started");
+		
 		lo.ClickOnLogInLink();
-		Thread.sleep(2000);
-
+		logger.info("log-in link is clicked");
+		
+	
 		lo.ClickOnLogInUsernameTextbox();
-		Thread.sleep(1000);
+		waitCall();
+		logger.info("log-in username is clicked");
+		
+		
 		lo.ClearLogInUsernameTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("log-in username is cleared");
+		
 
 		lo.EnterTextToUserNameTextBox(username);
-		Thread.sleep(1000);
+		waitCall();
+		logger.info("log-in username is entered");
+		
 
 		lo.ClickOnLogInPwdTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("log-in password is clicked");
+		
+		
 		lo.ClearLogInPwdTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("log-in password is cleared");
+		
 
 		lo.EnterTextToPwdTextBox(password);
-		Thread.sleep(1000);
-
+		waitCall();
+		logger.info("log-in password is entered");
+		
 		lo.ClickOnLogInButton();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("log-in button is clicked");
+	
 		lo.ClickOnLogOutButton();
+		waitCall();
+		logger.info("log-out button is clicked");
 
 	}
 
@@ -191,72 +242,123 @@ public class StepDefnition extends ActionUtilities {
 	public void checkSignInn(String username, String password) throws Exception {
 
 		SignUpPage su = new SignUpPage(driver);
+		logger.info("Sign-in started");
 
 		su.ClickOnSignupLink();
-		su.ClearSignupUsernameTextbox();
-		Thread.sleep(3000);
+		logger.info("sign-up link is clicked");
+		
 
 		su.ClickOnSignupUsernameTextbox();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("sign-up username is clicked");
+		
+		
 		su.ClearSignupUsernameTextbox();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("sign-up username is cleared");
+		
+		
 		su.EnterTextToUserNameTextBox(username + getDate());
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("sign-up username is entered");
+		
+		
 		su.ClickOnSignupPwdTextbox();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("sign-up password is clicked");
+		
+		
 		su.ClearSignupPwdTextbox();
-
-		Thread.sleep(3000);
+		logger.info("sign-up password is cleared");
+		
+		
 		su.EnterTextToPwdTextBox(password);
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("sign-up password is entered");
+		
+		
 		su.ClickOnSignupButton();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("sign-up button is clicked");
+		
+		
 		driver.switchTo().alert().accept();
-		Thread.sleep(5000);
+		waitCall();
+		logger.info("sign-in session ended");
+		
 	}
 
 	public void checkLogInn(String username, String password) throws Exception {
 		LogInPage lo = new LogInPage(driver);
-		Thread.sleep(3000);
+		logger.info("Log-in started");
+		
 
 		lo.ClickOnLogInLink();
-		Thread.sleep(3000);
-
+		logger.info("log-in link is clicked");
+		
+	
 		lo.ClickOnLogInUsernameTextbox();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("log-in username is clicked");
+	
+		
 		lo.ClearLogInUsernameTextbox();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("log-in username is cleared");
+		
 
 		lo.EnterTextToUserNameTextBox(username);
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("log-in username is entered");
+		
 
 		lo.ClickOnLogInPwdTextbox();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("log-in password is clicked");
+		
+		
 		lo.ClearLogInPwdTextbox();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("log-in password is cleared");
+	
 
 		lo.EnterTextToPwdTextBox(password);
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("log-in password is entered");
+		
 
 		lo.ClickOnLogInButton();
-		Thread.sleep(3000);
-
+		waitCall();
+		logger.info("log-in button is clicked");
+	
+		
+		
 		lo.Product();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("Product is selected");
+	
 		
 
 		CartPage ca = new CartPage(driver);
 		ca.ClickOnAddCartButton();
-		Thread.sleep(3000);
+		waitCall();
+		logger.info("Addcart button is clicked");
+		
 
 		driver.switchTo().alert().accept();
-		Thread.sleep(4000);
+		waitCall();
+		logger.info("alert accept");
+		
 
 		ca.ClickOnCartLink();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("Cart link is clicked");
+		
 
 		ca.ClickOnPlaceOrderButton();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder button is clicked");
+		
 	}
 
 	public void PaymentProcess(String name, String country, String city, String creditcard, String month, String year)
@@ -264,45 +366,73 @@ public class StepDefnition extends ActionUtilities {
 		PlaceOrderWindow pl = new PlaceOrderWindow(driver);
 
 		pl.ClickOnPlaceOrderUsernameTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder username is clicked");
+		
 
 		pl.EnterTextToName(name);
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder username is entered");
+		
 
 		pl.ClickOnPlaceOrderCountryTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder country is clicked");
+		
 
 		pl.EnterTextToCountry(country);
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder country is entered");
+		
 
 		pl.ClickOnPlaceOrderCityTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder city is clicked");
+		
 
 		pl.EnterTextToCity(city);
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder city is entered");
+		
 
 		pl.ClickOnPlaceOrderCreditCardTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder creditcard is clicked");
+		
 
 		pl.EnterTextToCreditCard(creditcard);
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder creditcard is entered");
+		
 
 		pl.ClickOnPlaceOrderMonthTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder month is clicked");
+		
 
 		pl.EnterTextToMonth(month);
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder month is entered");
+	
 
 		pl.ClickOnPlaceOrderYearTextbox();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder year is clicked");
+		
 
 		pl.EnterTextToYear(year);
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("PlaceOrder year is entered");
+		
 
 		pl.ClickOnPurchaseButton();
-		Thread.sleep(2000);
+		waitCall();
+		logger.info("Purchase button is clicked");
+		
 
 		ConfirmationWindow co = new ConfirmationWindow(driver);
+		waitCall();
+		logger.info("Product has been scheduled for shipping");
 		co.ClickOnOkButton();
 
 	}

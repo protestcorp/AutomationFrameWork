@@ -12,7 +12,7 @@ public class ActionXML {
 	 public String getLocatorType(String PageName, String locatorName)
 	{
 	String data = "";
-	int length = 0;
+	
 	try
 	{
 	File file = new File("E:\\Automation\\FrameWork\\src\\main\\java\\ObjectRepository\\ActionData.xml");

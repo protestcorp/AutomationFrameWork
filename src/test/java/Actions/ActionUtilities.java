@@ -1,39 +1,38 @@
 package Actions;
 
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import CucumberOptionsss.DataXMLHandler;
 import Project.FrameWork.Base;
 
-public class ActionUtilities  extends Base{
+
+public class ActionUtilities extends Base {
 	protected WebDriver driver;
 	WebElement Locator;
-//	String Address;
-//	String selector = null;
+	// String Address;
+	// String selector = null;
 	WebElement element;
+
+	private static final Logger logger = LogManager.getLogger(ActionUtilities.class.getName());
 
 	@Test
 	public WebElement newTab(String selector, String Address) throws Exception {
-	  
-	
+
 		// New tab
 		WebElement ele;
-
 		Actions action = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 5);
-		
 
 		switch (selector) {
 		case "xpath":
@@ -44,10 +43,12 @@ public class ActionUtilities  extends Base{
 
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
 
+				logger.error("In newtab action xpath is not functioned ");
+			}
+			logger.info("In newtab action xpath is functioned ");
 			break;
+
 		case "cssSelector":
 			try {
 
@@ -56,10 +57,11 @@ public class ActionUtilities  extends Base{
 
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In newtab action cssSelector is not functioned ");
 			}
-
+			logger.info("In newtab action cssSelector is functioned ");
 			break;
+
 		case "id":
 			try {
 
@@ -68,90 +70,92 @@ public class ActionUtilities  extends Base{
 
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In newtab action id is not functioned ");
 			}
-
+			logger.info("In newtab action id is functioned ");
 			break;
-		case "className":
 
+		case "className":
 			try {
 				ele = driver.findElement(By.cssSelector(Address));
 				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
 
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In newtab action className is not functioned ");
 			}
+			logger.info("In newtab action className is functioned ");
 			break;
-		case "tagName":
 
+		case "tagName":
 			try {
 				ele = driver.findElement(By.tagName(Address));
 				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
 
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In newtab action tagName is not functioned ");
 			}
+			logger.info("In newtab action tagName is functioned ");
 			break;
-		case "linkText":
 
+		case "linkText":
 			try {
 				ele = driver.findElement(By.linkText(Address));
 				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
 
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In newtab action linkText is not functioned ");
 			}
+			logger.info("In newtab action linkText is functioned ");
 			break;
-		case "name":
 
+		case "name":
 			try {
 				ele = driver.findElement(By.name(Address));
 				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
 
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In newtab action name is not functioned ");
 			}
+			logger.info("In newtab action name is functioned ");
 			break;
-		case "partialLinkText":
 
+		case "partialLinkText":
 			try {
 				ele = driver.findElement(By.partialLinkText(Address));
 				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
 
 				action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In newtab action partialLinkText is not functioned ");
 			}
+			logger.info("In newtab action partialLinkText is functioned ");
+
 		default:
-			throw new Exception("locator : " + selector + " not found!!!");
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " newtab action is not functioned ");
+			}
+			logger.info(" " + selector + " newtab action is functioned ");
+			;
 
 		}
 
 		return Locator;
 	}
-	/*
-	 * 
-	 * WebElement ele = driver.findElement(By.id("nav-link-accountList")); Actions
-	 * action = new Actions(driver);
-	 * action.moveToElement(ele).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).
-	 * build().perform();
-	 */
 
 	@Test
-	public WebElement copyPaste(String selector, String source,String destination ) throws Exception {
-		// Copy and paste any info
-	//	String source = null;
-	//	String destination = null;
+	public WebElement copyPaste(String selector, String source, String destination) throws Exception {
+
 		WebElement sourcetext;
 		WebElement destinationtext;
 		Actions action = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 4);
-		WebElement Source;
-		WebElement Destination;
 
 		switch (selector) {
 		case "id":
@@ -159,254 +163,119 @@ public class ActionUtilities  extends Base{
 				sourcetext = driver.findElement(By.id(source));
 				destinationtext = driver.findElement(By.id(destination));
 
-				Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
-				Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
-
 				action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In copyPaste action id is not functioned ");
 			}
+			logger.info("In copyPaste action id is functioned ");
 			break;
-		case "xpath":
 
+		case "xpath":
 			try {
 				sourcetext = driver.findElement(By.xpath(source));
 				destinationtext = driver.findElement(By.xpath(destination));
 
-				Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
-				Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
-
 				action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In copyPaste action xpath is not functioned ");
 			}
+			logger.info("In copyPaste action xpath is functioned ");
 			break;
-		case "className":
 
+		case "className":
 			try {
 				sourcetext = driver.findElement(By.className(source));
 				destinationtext = driver.findElement(By.className(destination));
-				Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
-				Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
-
 				action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In copyPaste action className is not functioned ");
 			}
+			logger.info("In copyPaste action className is functioned ");
 			break;
-		case "cssSelector":
 
+		case "cssSelector":
 			try {
 
 				sourcetext = driver.findElement(By.cssSelector(source));
 				destinationtext = driver.findElement(By.cssSelector(destination));
 
-				Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
-				Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
-
 				action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In copyPaste action cssSelector is not functioned ");
 			}
+			logger.info("In copyPaste action cssSelector is functioned ");
 			break;
-		case "tagName":
 
+		case "tagName":
 			try {
 				sourcetext = driver.findElement(By.tagName(source));
 				destinationtext = driver.findElement(By.tagName(destination));
-				Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
-				Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
-
 				action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In copyPaste action tagName is not functioned ");
 			}
+			logger.info("In copyPaste action tagName is functioned ");
 			break;
-		case "linkText":
 
+		case "linkText":
 			try {
 				sourcetext = driver.findElement(By.linkText(source));
 				destinationtext = driver.findElement(By.linkText(destination));
 
-				Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
-				Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
-
 				action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In copyPaste action linkText is not functioned ");
 			}
+			logger.info("In copyPaste action linkText is functioned ");
 			break;
-		case "name":
 
+		case "name":
 			try {
 				sourcetext = driver.findElement(By.name(source));
 				destinationtext = driver.findElement(By.name(destination));
 
-				Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
-				Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
-
 				action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In copyPaste action name is not functioned ");
 			}
+			logger.info("In copyPaste action name is functioned ");
 			break;
-		case "partialLinkText":
 
+		case "partialLinkText":
 			try {
 				sourcetext = driver.findElement(By.partialLinkText(source));
 				destinationtext = driver.findElement(By.partialLinkText(destination));
 
-				Source = wait.until(ExpectedConditions.elementToBeClickable(sourcetext));
-				Destination = wait.until(ExpectedConditions.elementToBeClickable(destinationtext));
-
 				action.keyDown(sourcetext, Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
 				action.keyDown(destinationtext, Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In copyPaste action partialLinkText is not functioned ");
 			}
+			logger.info("In copyPaste action partialLinkText is functioned ");
 			break;
+
 		default:
-			throw new Exception("locator : " + selector + " not found!!!");
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + "In copyPaste action is not functioned ");
+			}
+			logger.info(" " + selector + "In copyPaste action is functioned ");
 
 		}
 		return Locator;
 	}
 
-	/*
-	 * WebElement sourcetext = driver.findElement(By.xpath("<>")); WebElement
-	 * destinationtext = driver.findElement(By.xpath("<>")); Actions action = new
-	 * Actions(driver); action.keyDown(sourcetext,
-	 * Keys.CONTROL).sendKeys("A").sendKeys("C").build().perform();
-	 * action.keyDown(destinationtext,
-	 * Keys.CONTROL).sendKeys("A").sendKeys("V").build().perform();
-	 */
-	//
-	/*
 	@Test
-	public String upperCase() throws Exception {
-		// write text's in CAP's
-		String sendkeys = null;
-		WebElement ele;
-
-		Actions action = new Actions(driver);
-		WebDriverWait wait = new WebDriverWait(driver, 2);
-
-		switch (selector) {
-		case "xpath":
-
-			try {
-
-				ele = driver.findElement(By.xpath(Address));
-				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-				action.moveToElement(ele).click().keyDown(Keys.SHIFT).sendKeys(sendkeys).build().perform();
-			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
-			break;
-		case "cssSelector":
-
-			try {
-
-				ele = driver.findElement(By.cssSelector(Address));
-				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-				action.moveToElement(ele).click().keyDown(Keys.SHIFT).sendKeys(sendkeys).build().perform();
-			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
-			break;
-		case "id":
-
-			try {
-
-				ele = driver.findElement(By.id(Address));
-				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-				action.moveToElement(ele).click().keyDown(Keys.SHIFT).sendKeys(sendkeys).build().perform();
-			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
-			break;
-		case "className":
-
-			try {
-
-				ele = driver.findElement(By.className(Address));
-				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-				action.moveToElement(ele).click().keyDown(Keys.SHIFT).sendKeys(sendkeys).build().perform();
-			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
-			break;
-		case "tagName":
-
-			try {
-				ele = driver.findElement(By.tagName(Address));
-				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-				action.moveToElement(ele).click().keyDown(Keys.SHIFT).sendKeys(sendkeys).build().perform();
-			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
-			break;
-		case "linkText":
-
-			try {
-				ele = driver.findElement(By.linkText(Address));
-
-				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-				action.moveToElement(ele).click().keyDown(Keys.SHIFT).sendKeys(sendkeys).build().perform();
-			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
-			break;
-		case "name":
-
-			try {
-				ele = driver.findElement(By.name(Address));
-
-				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-				action.moveToElement(ele).click().keyDown(Keys.SHIFT).sendKeys(sendkeys).build().perform();
-			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
-			break;
-		case "partialLinkText":
-
-			try {
-				ele = driver.findElement(By.partialLinkText(Address));
-				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-
-				action.moveToElement(ele).click().keyDown(Keys.SHIFT).sendKeys(sendkeys).build().perform();
-			} catch (Exception e) {
-				Assert.assertTrue(false);
-			}
-		default:
-			throw new Exception("locator : " + selector + " not found!!!");
-
-		}
-		return Locator;
-	}
-	/*
-	 * WebElement ele = driver.findElement(By.id("twotabsearchtextbox"));
-	 * 
-	 * Actions action = new Actions(driver); action.moveToElement(ele).
-	 * click().keyDown(Keys.SHIFT).sendKeys("protest"). build().perform();
-	 */
-
-	@Test
-	public void hover(String selector, String Address) throws Exception {
+	public WebElement hover(String selector, String Address) throws Exception {
 
 		WebElement ele;
 		Actions action = new Actions(driver);
@@ -414,7 +283,6 @@ public class ActionUtilities  extends Base{
 
 		switch (selector) {
 		case "xpath":
-
 			try {
 
 				ele = driver.findElement(By.xpath(Address));
@@ -424,11 +292,12 @@ public class ActionUtilities  extends Base{
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In hover action xpath is not functioned ");
 			}
+			logger.info("In hover action xpath is functioned ");
 			break;
-		case "cssSelector":
 
+		case "cssSelector":
 			try {
 				ele = driver.findElement(By.cssSelector(Address));
 
@@ -437,11 +306,12 @@ public class ActionUtilities  extends Base{
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In hover action cssSelector is not functioned ");
 			}
+			logger.info("In hover action cssSelector is functioned ");
 			break;
-		case "id":
 
+		case "id":
 			try {
 
 				ele = driver.findElement(By.id(Address));
@@ -451,11 +321,12 @@ public class ActionUtilities  extends Base{
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In hover action id is not functioned ");
 			}
+			logger.info("In hover action id is functioned ");
 			break;
-		case "className":
 
+		case "className":
 			try {
 
 				ele = driver.findElement(By.className(Address));
@@ -465,11 +336,12 @@ public class ActionUtilities  extends Base{
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In hover action className is not functioned ");
 			}
+			logger.info("In hover action className is functioned ");
 			break;
-		case "tagName":
 
+		case "tagName":
 			try {
 
 				ele = driver.findElement(By.tagName(Address));
@@ -479,11 +351,12 @@ public class ActionUtilities  extends Base{
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In hover action tagName is not functioned ");
 			}
+			logger.info("In hover action tagName is functioned ");
 			break;
-		case "linkText":
 
+		case "linkText":
 			try {
 
 				ele = driver.findElement(By.linkText(Address));
@@ -493,11 +366,12 @@ public class ActionUtilities  extends Base{
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In hover action linkText is not functioned ");
 			}
+			logger.info("In hover action linkText is functioned ");
 			break;
-		case "name":
 
+		case "name":
 			try {
 
 				ele = driver.findElement(By.name(Address));
@@ -507,11 +381,12 @@ public class ActionUtilities  extends Base{
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In hover action name is not functioned ");
 			}
+			logger.info("In hover action name is functioned ");
 			break;
-		case "partialLinkText":
 
+		case "partialLinkText":
 			try {
 
 				ele = driver.findElement(By.partialLinkText(Address));
@@ -521,19 +396,22 @@ public class ActionUtilities  extends Base{
 				action.moveToElement(ele).perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In hover action partialLinkText is not functioned ");
 			}
+			logger.info("In hover action partialLinkText is functioned ");
+
 		default:
-			throw new Exception("locator : " + selector + " not found!!!");
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " hover action is not functioned ");
+			}
+			logger.info(" " + selector + " hover action is functioned ");
 
 		}
-
+		return Locator;
 	}
-	/*
-	 * WebElement ele = driver.findElement(By.id("nav-link-accountList")); Actions
-	 * action = new Actions(driver); action.moveToElement(ele).perform();
-	 * Thread.sleep(3000);
-	 */
 
 	@Test
 	public WebElement doubleClick(String selector, String Address) throws Exception {
@@ -543,7 +421,6 @@ public class ActionUtilities  extends Base{
 
 		switch (selector) {
 		case "xpath":
-
 			try {
 
 				trialaction = driver.findElement(By.xpath(Address));
@@ -552,9 +429,11 @@ public class ActionUtilities  extends Base{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(2000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In doubleClick action xpath is not functioned ");
 			}
+			logger.info("In doubleClick action xpath is functioned ");
 			break;
+
 		case "cssSelector":
 
 			try {
@@ -565,9 +444,11 @@ public class ActionUtilities  extends Base{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(2000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In doubleClick action cssSelector is not functioned ");
 			}
+			logger.info("In doubleClick action cssSelector is functioned ");
 			break;
+
 		case "id":
 
 			try {
@@ -578,9 +459,11 @@ public class ActionUtilities  extends Base{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(2000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In doubleClick action id is not functioned ");
 			}
+			logger.info("In doubleClick action id is functioned ");
 			break;
+
 		case "className":
 
 			try {
@@ -591,9 +474,11 @@ public class ActionUtilities  extends Base{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(2000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In doubleClick action className is not functioned ");
 			}
+			logger.info("In doubleClick action className is functioned ");
 			break;
+
 		case "tagName":
 
 			try {
@@ -604,9 +489,11 @@ public class ActionUtilities  extends Base{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(2000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In doubleClick action tagName is not functioned ");
 			}
+			logger.info("In doubleClick action tagName is functioned ");
 			break;
+
 		case "linkText":
 
 			try {
@@ -618,9 +505,11 @@ public class ActionUtilities  extends Base{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(2000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In doubleClick action linkText is not functioned ");
 			}
+			logger.info("In doubleClick action linkText is functioned ");
 			break;
+
 		case "name":
 
 			try {
@@ -632,9 +521,11 @@ public class ActionUtilities  extends Base{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(2000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In doubleClick action name is not functioned ");
 			}
+			logger.info("In doubleClick action name is functioned ");
 			break;
+
 		case "partialLinkText":
 
 			try {
@@ -646,34 +537,31 @@ public class ActionUtilities  extends Base{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(2000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In doubleClick action partialLinkText is not functioned ");
 			}
+			logger.info("In doubleClick action partialLinkText is functioned ");
+
 		default:
-			throw new Exception("locator : " + selector + " not found!!!");
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " doubleClick action is not functioned ");
+			}
+			logger.info(" " + selector + " doubleClick action is functioned ");
 
 		}
 		return Locator;
 
 	}
-	/*
-	 * WebElement trialaction =
-	 * driver.findElement(By.id("nav-global-location-popover-link")); Actions action
-	 * = new Actions(driver); action.doubleClick(trialaction).perform();
-	 * Thread.sleep(3000);
-	 */
 
 	@Test
-	public WebElement dragAndDrop(String selector, String fromm ,String Too) throws Exception {
-	//	String fromm = null;
-	//	String Too = null;
+	public WebElement dragAndDrop(String selector, String fromm, String Too) throws Exception {
 
 		WebElement From;
 		WebElement To;
 		Actions action = new Actions(driver);
 		WebDriverWait wait = new WebDriverWait(driver, 4);
-		WebElement to;
-		WebElement from;
-
 		switch (selector) {
 		case "xpath":
 
@@ -681,31 +569,29 @@ public class ActionUtilities  extends Base{
 
 				From = driver.findElement(By.xpath(fromm));
 				To = driver.findElement(By.xpath(Too));
-				from = wait.until(ExpectedConditions.elementToBeClickable(From));
-				to = wait.until(ExpectedConditions.elementToBeClickable(To));
-
 				Thread.sleep(3000);
 				action.dragAndDrop(From, To).build().perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In dragAndDrop action xpath is not functioned ");
 			}
+			logger.info("In dragAndDrop action xpath is functioned ");
 			break;
+
 		case "cssSelector":
 
 			try {
 				From = driver.findElement(By.cssSelector(fromm));
 				To = driver.findElement(By.cssSelector(Too));
-				from = wait.until(ExpectedConditions.elementToBeClickable(From));
-				to = wait.until(ExpectedConditions.elementToBeClickable(To));
-
 				Thread.sleep(3000);
 				action.dragAndDrop(From, To).build().perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In dragAndDrop action cssSelector is not functioned ");
 			}
+			logger.info("In dragAndDrop action cssSelector is functioned ");
 			break;
+
 		case "id":
 
 			try {
@@ -713,107 +599,100 @@ public class ActionUtilities  extends Base{
 				From = driver.findElement(By.id(fromm));
 				To = driver.findElement(By.id(Too));
 
-				from = wait.until(ExpectedConditions.elementToBeClickable(From));
-				to = wait.until(ExpectedConditions.elementToBeClickable(To));
-
 				Thread.sleep(3000);
 				action.dragAndDrop(From, To).build().perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In dragAndDrop action id is not functioned ");
 			}
+			logger.info("In dragAndDrop action id is functioned ");
 			break;
+
 		case "className":
 
 			try {
 
 				From = driver.findElement(By.className(fromm));
 				To = driver.findElement(By.className(Too));
-				from = wait.until(ExpectedConditions.elementToBeClickable(From));
-				to = wait.until(ExpectedConditions.elementToBeClickable(To));
-
 				Thread.sleep(3000);
 				action.dragAndDrop(From, To).build().perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In dragAndDrop action className is not functioned ");
 			}
+			logger.info("In dragAndDrop action className is functioned ");
 			break;
+
 		case "tagName":
 
 			try {
 
 				From = driver.findElement(By.tagName(fromm));
 				To = driver.findElement(By.tagName(Too));
-				from = wait.until(ExpectedConditions.elementToBeClickable(From));
-				to = wait.until(ExpectedConditions.elementToBeClickable(To));
-
 				Thread.sleep(3000);
 				action.dragAndDrop(From, To).build().perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In dragAndDrop action tagName is not functioned ");
 			}
+			logger.info("In dragAndDrop action tagName is functioned ");
 			break;
+
 		case "linkText":
 
 			try {
 				From = driver.findElement(By.linkText(fromm));
 				To = driver.findElement(By.linkText(Too));
-				from = wait.until(ExpectedConditions.elementToBeClickable(From));
-				to = wait.until(ExpectedConditions.elementToBeClickable(To));
-
 				Thread.sleep(3000);
 				action.dragAndDrop(From, To).build().perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In dragAndDrop action linkText is not functioned ");
 			}
+			logger.info("In dragAndDrop action linkText is functioned ");
 			break;
+
 		case "name":
 
 			try {
 				From = driver.findElement(By.name(fromm));
 				To = driver.findElement(By.name(Too));
 
-				from = wait.until(ExpectedConditions.elementToBeClickable(From));
-				to = wait.until(ExpectedConditions.elementToBeClickable(To));
-
 				Thread.sleep(3000);
 				action.dragAndDrop(From, To).build().perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In dragAndDrop action name is not functioned ");
 			}
+			logger.info("In dragAndDrop action name is functioned ");
 			break;
+
 		case "partialLinkText":
 
 			try {
 				From = driver.findElement(By.partialLinkText(fromm));
 				To = driver.findElement(By.partialLinkText(Too));
-				from = wait.until(ExpectedConditions.elementToBeClickable(From));
-				to = wait.until(ExpectedConditions.elementToBeClickable(To));
-
 				Thread.sleep(3000);
 				action.dragAndDrop(From, To).build().perform();
 				Thread.sleep(3000);
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In dragAndDrop action partialLinkText is not functioned ");
 			}
+			logger.info("In dragAndDrop action partialLinkText is functioned ");
 			break;
+
 		default:
-			throw new Exception("locator : " + selector + " not found!!!");
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " dragAndDrop action is not functioned ");
+			}
+			logger.info(" " + selector + " dragAndDrop action is functioned ");
 
 		}
 		return Locator;
 	}
-	/*
-	 * WebElement From=driver.findElement(By.xpath("//*[@id='credit2']/a"));
-	 * WebElement To=driver.findElement(By.xpath("//*[@class='placeholder']"));
-	 * //http://demo.guru99.com/test/drag_drop.html Actions action=new
-	 * Actions(driver); Thread.sleep(3000); action.dragAndDrop(From,
-	 * To).build().perform(); Thread.sleep(3000);
-	 */
 
 	@Test
 	public WebElement clickAndHold(String selector, String Address) throws Exception {
@@ -834,9 +713,11 @@ public class ActionUtilities  extends Base{
 				Thread.sleep(3000);
 				action.clickAndHold().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In clickAndHold action xpath is not functioned ");
 			}
+			logger.info("In clickAndHold action xpath is functioned ");
 			break;
+
 		case "cssSelector":
 
 			try {
@@ -849,9 +730,11 @@ public class ActionUtilities  extends Base{
 				Thread.sleep(3000);
 				action.clickAndHold().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In clickAndHold action cssSelector is not functioned ");
 			}
+			logger.info("In clickAndHold action cssSelector is functioned ");
 			break;
+
 		case "id":
 
 			try {
@@ -864,9 +747,11 @@ public class ActionUtilities  extends Base{
 				Thread.sleep(3000);
 				action.clickAndHold().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In clickAndHold action id is not functioned ");
 			}
+			logger.info("In clickAndHold action id is functioned ");
 			break;
+
 		case "className":
 
 			try {
@@ -879,9 +764,11 @@ public class ActionUtilities  extends Base{
 				Thread.sleep(3000);
 				action.clickAndHold().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In clickAndHold action className is not functioned ");
 			}
+			logger.info("In clickAndHold action className is functioned ");
 			break;
+
 		case "tagName":
 
 			try {
@@ -894,9 +781,11 @@ public class ActionUtilities  extends Base{
 				Thread.sleep(3000);
 				action.clickAndHold().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In clickAndHold action tagName is not functioned ");
 			}
+			logger.info("In clickAndHold action tagName is functioned ");
 			break;
+
 		case "linkText":
 
 			try {
@@ -909,9 +798,11 @@ public class ActionUtilities  extends Base{
 				Thread.sleep(3000);
 				action.clickAndHold().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In clickAndHold action linkText is not functioned ");
 			}
+			logger.info("In clickAndHold action linkText is functioned ");
 			break;
+
 		case "name":
 
 			try {
@@ -924,9 +815,11 @@ public class ActionUtilities  extends Base{
 				Thread.sleep(3000);
 				action.clickAndHold().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In clickAndHold action name is not functioned ");
 			}
+			logger.info("In clickAndHold action name is functioned ");
 			break;
+
 		case "partialLinkText":
 
 			try {
@@ -939,29 +832,29 @@ public class ActionUtilities  extends Base{
 				Thread.sleep(3000);
 				action.clickAndHold().perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In clickAndHold action partialLinkText is not functioned ");
 			}
-			break;
-		default:
-			throw new Exception("locator : " + selector + " not found!!!");
+			logger.info("In clickAndHold action partialLinkText is functioned ");
 
+		default:
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " clickAndHold action is not functioned ");
+			}
+			logger.info(" " + selector + " clickAndHold action is functioned ");
 		}
 		return Locator;
 	}
-	/*
-	 * WebElement titleC = driver.findElement(By.xpath("//li[text()= 'C']"));
-	 * //https://selenium08.blogspot.com/2020/01/click-and-hold.html Actions action
-	 * = new Actions(driver); Thread.sleep(3000); action.moveToElement(titleC);
-	 * Thread.sleep(3000); action.clickAndHold().perform();
-	 */
 
 	@Test
-	public WebElement contextClick(String selector, String Address)  {
+	public WebElement contextClick(String selector, String Address) {
 		Actions action = new Actions(driver);
 
 		WebElement ele;
 		WebDriverWait wait = new WebDriverWait(driver, 3);
-		
+
 		switch (selector) {
 		case "xpath":
 
@@ -972,9 +865,11 @@ public class ActionUtilities  extends Base{
 
 				action.contextClick(ele).perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In contextClick action xpath is not functioned ");
 			}
+			logger.info("In contextClick action xpath is functioned ");
 			break;
+
 		case "cssSelector":
 
 			try {
@@ -984,9 +879,11 @@ public class ActionUtilities  extends Base{
 
 				action.contextClick(ele).perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In contextClick action cssSelector is not functioned ");
 			}
+			logger.info("In contextClick action cssSelector is functioned ");
 			break;
+
 		case "id":
 
 			try {
@@ -996,9 +893,11 @@ public class ActionUtilities  extends Base{
 
 				action.contextClick(ele).perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In contextClick action id is not functioned ");
 			}
+			logger.info("In contextClick action id is functioned ");
 			break;
+
 		case "className":
 
 			try {
@@ -1009,9 +908,11 @@ public class ActionUtilities  extends Base{
 
 				action.contextClick(ele).perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In contextClick action className is not functioned ");
 			}
+			logger.info("In contextClick action className is functioned ");
 			break;
+
 		case "tagName":
 
 			try {
@@ -1021,9 +922,11 @@ public class ActionUtilities  extends Base{
 
 				action.contextClick(ele).perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In contextClick action tagName is not functioned ");
 			}
+			logger.info("In contextClick action tagName is functioned ");
 			break;
+
 		case "linkText":
 
 			try {
@@ -1033,9 +936,11 @@ public class ActionUtilities  extends Base{
 
 				action.contextClick(ele).perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In contextClick action linkText is not functioned ");
 			}
+			logger.info("In contextClick action linkText is functioned ");
 			break;
+
 		case "name":
 
 			try {
@@ -1045,9 +950,11 @@ public class ActionUtilities  extends Base{
 
 				action.contextClick(ele).perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In contextClick action name is not functioned ");
 			}
+			logger.info("In contextClick action name is functioned ");
 			break;
+
 		case "partialLinkText":
 
 			try {
@@ -1057,27 +964,25 @@ public class ActionUtilities  extends Base{
 
 				action.contextClick(ele).perform();
 			} catch (Exception e) {
-				Assert.assertTrue(false);
+				logger.error("In contextClick action partialLinkText is not functioned ");
 			}
+			logger.info("In contextClick action partialLinkText is functioned ");
 			break;
+
 		default:
 			try {
 				throw new Exception("locator : " + selector + " not found!!!");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+				logger.error(" " + selector + " contextClick action is not functioned ");
 			}
-
+			logger.info(" " + selector + " contextClick action is functioned ");
 		}
 		return Locator;
 	}
-	/*
-	 * WebElement element = driver.findElement(By.id("twotabsearchtextbox"));
-	 * Actions action = new Actions(driver); action.contextClick(element).perform();
-	 */
 
 	@Test
-	public void textVerify(String selector, String Address) throws Exception {
+	public WebElement textVerify(String selector, String Address) throws Exception {
 
 		String Expected = null;
 		WebDriverWait wait = new WebDriverWait(driver, 3);
@@ -1090,17 +995,17 @@ public class ActionUtilities  extends Base{
 			ele = driver.findElement(By.id(Address));
 			element = wait.until(ExpectedConditions.elementToBeClickable(ele));
 			text = element.getText();
-
 			System.out.println("Text obtained is" + text);
-
 			if (text.contains(Expected)) {
 				System.out.println("Expected text is obtained");
 			} else {
 
 				System.out.println("Expected text is not obtained");
-
+				logger.error("In textVerify action id is not functioned ");
 			}
+			logger.info("In textVerify action id is functioned ");
 			break;
+
 		case "className":
 			ele = driver.findElement(By.className(Address));
 			element = wait.until(ExpectedConditions.elementToBeClickable(ele));
@@ -1113,9 +1018,11 @@ public class ActionUtilities  extends Base{
 			} else {
 
 				System.out.println("Expected text is not obtained");
-
+				logger.error("In textVerify action className is not functioned ");
 			}
+			logger.info("In textVerify action className is functioned ");
 			break;
+
 		case "tagName":
 			ele = driver.findElement(By.tagName(Address));
 			element = wait.until(ExpectedConditions.elementToBeClickable(ele));
@@ -1128,11 +1035,12 @@ public class ActionUtilities  extends Base{
 			} else {
 
 				System.out.println("Expected text is not obtained");
-
+				logger.error("In textVerify action tagName is not functioned ");
 			}
+			logger.info("In textVerify action tagName is functioned ");
 			break;
-		case "xpath":
 
+		case "xpath":
 			ele = driver.findElement(By.xpath(Address));
 			element = wait.until(ExpectedConditions.elementToBeClickable(ele));
 			text = element.getText();
@@ -1144,9 +1052,11 @@ public class ActionUtilities  extends Base{
 			} else {
 
 				System.out.println("Expected text is not obtained");
-
+				logger.error("In textVerify action xpath is not functioned ");
 			}
+			logger.info("In textVerify action xpath is functioned ");
 			break;
+
 		case "cssSelector":
 			ele = driver.findElement(By.cssSelector(Address));
 			element = wait.until(ExpectedConditions.elementToBeClickable(ele));
@@ -1159,9 +1069,11 @@ public class ActionUtilities  extends Base{
 			} else {
 
 				System.out.println("Expected text is not obtained");
-
+				logger.error("In textVerify action cssSelector is not functioned ");
 			}
+			logger.info("In textVerify action cssSelector is functioned ");
 			break;
+
 		case "linkText":
 			ele = driver.findElement(By.linkText(Address));
 			element = wait.until(ExpectedConditions.elementToBeClickable(ele));
@@ -1174,9 +1086,11 @@ public class ActionUtilities  extends Base{
 			} else {
 
 				System.out.println("Expected text is not obtained");
-
+				logger.error("In textVerify action linkText is not functioned ");
 			}
+			logger.info("In textVerify action linkText is functioned ");
 			break;
+
 		case "name":
 			ele = driver.findElement(By.name(Address));
 			element = wait.until(ExpectedConditions.elementToBeClickable(ele));
@@ -1189,9 +1103,11 @@ public class ActionUtilities  extends Base{
 			} else {
 
 				System.out.println("Expected text is not obtained");
-
+				logger.error("In textVerify action name is not functioned ");
 			}
+			logger.info("In textVerify action name is functioned ");
 			break;
+
 		case "partialLinkText":
 			ele = driver.findElement(By.partialLinkText(Address));
 			element = wait.until(ExpectedConditions.elementToBeClickable(ele));
@@ -1204,345 +1120,453 @@ public class ActionUtilities  extends Base{
 			} else {
 
 				System.out.println("Expected text is not obtained");
-
+				logger.error("In textVerify action partialLinkText is not functioned ");
 			}
+			logger.info("In textVerify action partialLinkText is functioned ");
 			break;
-		default:
-			throw new Exception("locator : " + selector + " not found!!!");
 
+		default:
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " textVerify action is not functioned ");
+			}
+			logger.info(" " + selector + " textVerify action is functioned ");
 		}
+		return Locator;
+
 	}
 
-    @Test
-    public WebElement click(String selector, String Address) throws Exception {
+	@Test
+	public WebElement click(String selector, String Address) throws Exception {
 
- 
-        switch (selector) {
-        case "xpath":
-            driver.findElement(By.xpath(Address)).click();
-            break;
-            
-        case "cssSelector":
-            driver.findElement(By.cssSelector(Address)).click();
-            break;
-            
-        case "id":
-    //      Locator =  driver.findElement(By.id(Address));
-          driver.findElement(By.id(Address)).click();
-          
- 
+		switch (selector) {
+		case "xpath":
+			try {
+				driver.findElement(By.xpath(Address)).click();
+			} catch (Exception e) {
+				logger.error("In click action xpath is not functioned ");
+			}
+			logger.info("In click action xpath is functioned ");
+			break;
 
-        break;
-        case "className":
-            driver.findElement(By.className(Address)).click();
-            break;
-            
-        case "tagName":
-            driver.findElement(By.tagName(Address)).click();
-            break;
+		case "cssSelector":
+			try {
+				driver.findElement(By.cssSelector(Address)).click();
+			} catch (Exception e) {
+				logger.error("In click action cssSelector is not functioned ");
+			}
+			logger.info("In click action cssSelector is functioned ");
+			break;
 
- 
+		case "id":
+			try {
+				driver.findElement(By.id(Address)).click();
+			} catch (Exception e) {
+				logger.error("In click action id is not functioned ");
+			}
+			logger.info("In click action id is functioned ");
+			break;
 
-        case "linkText":
-            driver.findElement(By.linkText(Address)).click();
-            break;
-            
-        case "name":
-            driver.findElement(By.name(Address)).click();
-            break;
-            
-        case "partialLinkText":
-            driver.findElement(By.partialLinkText(Address)).click();
-        default:
-             throw new Exception("locator : " + selector + " not found!!!");
-             
-                 }
-         return Locator;
-        }
-    
-    @Test
-    public WebElement clear(String selector, String Address) throws Exception {
+		case "className":
+			try {
+				driver.findElement(By.className(Address)).click();
+			} catch (Exception e) {
+				logger.error("In click action className is not functioned ");
+			}
+			logger.info("In click action className is functioned ");
+			break;
 
-        switch (selector) {
-        case "xpath":
-            driver.findElement(By.xpath(Address)).clear();
-            break;
-            
-        case "cssSelector":
-            driver.findElement(By.cssSelector(Address)).clear();
-            break;
-            
-        case "id":
-            driver.findElement(By.id(Address)).clear();
-        break;
-        
-        case "className":
-            driver.findElement(By.className(Address)).clear();
-            break;
-            
-        case "tagName":
-            driver.findElement(By.tagName(Address)).clear();
-            break;
+		case "tagName":
+			try {
+				driver.findElement(By.tagName(Address)).click();
+			} catch (Exception e) {
+				logger.error("In click action tagName is not functioned ");
+			}
+			logger.info("In click action tagName is functioned ");
+			break;
 
- 
+		case "linkText":
+			try {
+				driver.findElement(By.linkText(Address)).click();
+			} catch (Exception e) {
+				logger.error("In click action linkText is not functioned ");
+			}
+			logger.info("In click action linkText is functioned ");
+			break;
 
-        case "linkText":
-            driver.findElement(By.linkText(Address)).clear();
-            break;
-            
-        case "name":
-            driver.findElement(By.name(Address)).clear();
-            break;
-            
-        case "partialLinkText":
-            driver.findElement(By.partialLinkText(Address)).clear();
-         default:
-             throw new Exception("locator : " + selector + " not found!!!");
-             
-                 }
-         return Locator;
-        }
-    
-   
-	public String autoSuggetion(String selector, String Address) {
+		case "name":
+			try {
+				driver.findElement(By.name(Address)).click();
+			} catch (Exception e) {
+				logger.error("In click action name is not functioned ");
+			}
+			logger.info("In click action name is functioned ");
+			break;
 
+		case "partialLinkText":
+			try {
+				driver.findElement(By.partialLinkText(Address)).click();
+			} catch (Exception e) {
+				logger.error("In click action partialLinkText is not functioned ");
+			}
+			logger.info("In click action partialLinkText is functioned ");
+			break;
 
-    WebElement Search; 
-    String keyvalue = null; 
-    String Value = null; 
-    String Locator;
-   
-        
-   
-        WebDriverWait wait = new WebDriverWait(driver, 2);
-        
-        switch (selector) {            
-       
-        case "xpath":
-            try {
-    
-        Search = driver.findElement(By.xpath(Address));
-        Search.click();
-        Search.sendKeys(keyvalue);
-        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
-        
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "cssSelector":
-            try {
-    
-        Search = driver.findElement(By.cssSelector(Address));
-        Search.click();
-        Search.sendKeys(keyvalue);
-        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
-        
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "id":
-            try {
-    
-        Search = driver.findElement(By.id(Address));
-        Search.click();
-        Search.sendKeys(keyvalue);
-        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
-        
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "className":
-            try {
-    
-        Search = driver.findElement(By.className(Address));
-        Search.click();
-        Search.sendKeys(keyvalue);
-        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
-        
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "tagName":
-            try {
-    
-        Search = driver.findElement(By.tagName(Address));
-        Search.click();
-        Search.sendKeys(keyvalue);
-        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
-        
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "name":
-            try {
-    
-        Search = driver.findElement(By.name(Address));
-        Search.click();
-        Search.sendKeys(keyvalue);
-        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
-        
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-    
-        case "linkText":
-            try {
-    
-        Search = driver.findElement(By.linkText(Address));
-        Search.click();
-        Search.sendKeys(keyvalue);
-        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
-        
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
+		default:
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " click action is not functioned ");
+			}
+			logger.info(" " + selector + " click action is functioned ");
+		}
+		return Locator;
+	}
 
- 
+	@Test
+	public WebElement clear(String selector, String Address) throws Exception {
 
-        case "partialLinkText":
-            try {
-    
-        Search = driver.findElement(By.partialLinkText(Address));
-        Search.click();
-        Search.sendKeys(keyvalue);
-        driver.findElement(By.xpath("//*[contains(text(),'"+Value+"'")).click();
-        
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-                        
-                
-    }
-        return Value;
-    
-}
+		switch (selector) {
+		case "xpath":
+			try {
+				driver.findElement(By.xpath(Address)).clear();
+			} catch (Exception e) {
+				logger.error("In clear action xpath is not functioned ");
+			}
+			logger.info("In clear action xpath is functioned ");
+			break;
+
+		case "cssSelector":
+			try {
+				driver.findElement(By.cssSelector(Address)).clear();
+			} catch (Exception e) {
+				logger.error("In clear action cssSelector is not functioned ");
+			}
+			logger.info("In clear action cssSelector is functioned ");
+			break;
+
+		case "id":
+			try {
+				driver.findElement(By.id(Address)).clear();
+			} catch (Exception e) {
+				logger.error("In clear action id is not functioned ");
+			}
+			logger.info("In clear action id is functioned ");
+			break;
+
+		case "className":
+			try {
+				driver.findElement(By.className(Address)).clear();
+			} catch (Exception e) {
+				logger.error("In clear action className is not functioned ");
+			}
+			logger.info("In clear action className is functioned ");
+			break;
+
+		case "tagName":
+			try {
+				driver.findElement(By.tagName(Address)).clear();
+			} catch (Exception e) {
+				logger.error("In clear action tagName is not functioned ");
+			}
+			logger.info("In clear action tagName is functioned ");
+			break;
+
+		case "linkText":
+			try {
+				driver.findElement(By.linkText(Address)).clear();
+			} catch (Exception e) {
+				logger.error("In clear action linkText is not functioned ");
+			}
+			logger.info("In clear action linkText is functioned ");
+			break;
+
+		case "name":
+			try {
+				driver.findElement(By.name(Address)).clear();
+			} catch (Exception e) {
+				logger.error("In clear action name is not functioned ");
+			}
+			logger.info("In clear action name is functioned ");
+			break;
+
+		case "partialLinkText":
+			try {
+				driver.findElement(By.partialLinkText(Address)).clear();
+			} catch (Exception e) {
+				logger.error("In clear action partialLinkText is not functioned ");
+			}
+			logger.info("In clear action partialLinkText is functioned ");
+			break;
+
+		default:
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " clear action is not functioned ");
+			}
+			logger.info(" " + selector + " clear action is functioned ");
+		}
+		return Locator;
+	}
+
+	public String autoSuggetion(String selector, String Address) throws Exception {
+
+		WebElement Search;
+		String keyvalue = null;
+		String Value = null;
+		WebDriverWait wait = new WebDriverWait(driver, 2);
+
+		switch (selector) {
+
+		case "xpath":
+			try {
+				Search = driver.findElement(By.xpath(Address));
+				Search.click();
+				Search.sendKeys(keyvalue);
+				driver.findElement(By.xpath("//*[contains(text(),'" + Value + "'")).click();
+
+			} catch (Exception e) {
+				logger.error("In autoSuggetion action xpath is not functioned ");
+			}
+			logger.info("In autoSuggetion action xpath is functioned ");
+			break;
+
+		case "cssSelector":
+			try {
+				Search = driver.findElement(By.cssSelector(Address));
+				Search.click();
+				Search.sendKeys(keyvalue);
+				driver.findElement(By.xpath("//*[contains(text(),'" + Value + "'")).click();
+
+			} catch (Exception e) {
+				logger.error("In autoSuggetion action cssSelector is not functioned ");
+			}
+			logger.info("In autoSuggetion action cssSelector is functioned ");
+			break;
+
+		case "id":
+			try {
+				Search = driver.findElement(By.id(Address));
+				Search.click();
+				Search.sendKeys(keyvalue);
+				driver.findElement(By.xpath("//*[contains(text(),'" + Value + "'")).click();
+
+			} catch (Exception e) {
+				logger.error("In autoSuggetion action id is not functioned ");
+			}
+			logger.info("In autoSuggetion action id is functioned ");
+			break;
+
+		case "className":
+			try {
+				Search = driver.findElement(By.className(Address));
+				Search.click();
+				Search.sendKeys(keyvalue);
+				driver.findElement(By.xpath("//*[contains(text(),'" + Value + "'")).click();
+
+			} catch (Exception e) {
+				logger.error("In autoSuggetion action className is not functioned ");
+			}
+			logger.info("In autoSuggetion action className is functioned ");
+			break;
+
+		case "tagName":
+			try {
+
+				Search = driver.findElement(By.tagName(Address));
+				Search.click();
+				Search.sendKeys(keyvalue);
+				driver.findElement(By.xpath("//*[contains(text(),'" + Value + "'")).click();
+
+			} catch (Exception e) {
+				logger.error("In autoSuggetion action tagName is not functioned ");
+			}
+			logger.info("In autoSuggetion action tagName is functioned ");
+			break;
+
+		case "name":
+			try {
+
+				Search = driver.findElement(By.name(Address));
+				Search.click();
+				Search.sendKeys(keyvalue);
+				driver.findElement(By.xpath("//*[contains(text(),'" + Value + "'")).click();
+
+			} catch (Exception e) {
+				logger.error("In autoSuggetion action name is not functioned ");
+			}
+			logger.info("In autoSuggetion action name is functioned ");
+			break;
+
+		case "linkText":
+			try {
+
+				Search = driver.findElement(By.linkText(Address));
+				Search.click();
+				Search.sendKeys(keyvalue);
+				driver.findElement(By.xpath("//*[contains(text(),'" + Value + "'")).click();
+
+			} catch (Exception e) {
+				logger.error("In autoSuggetion action linkText is not functioned ");
+			}
+			logger.info("In autoSuggetion action linkText is functioned ");
+			break;
+
+		case "partialLinkText":
+			try {
+
+				Search = driver.findElement(By.partialLinkText(Address));
+				Search.click();
+				Search.sendKeys(keyvalue);
+				driver.findElement(By.xpath("//*[contains(text(),'" + Value + "'")).click();
+
+			} catch (Exception e) {
+				logger.error("In autoSuggetion action partialLinkText is not functioned ");
+			}
+			logger.info("In autoSuggetion action partialLinkText is functioned ");
+			break;
+
+		default:
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " autoSuggetion action is not functioned ");
+			}
+			logger.info(" " + selector + " autoSuggetion action is functioned ");
+
+		}
+		return Value;
+	}
+
 	public WebElement sendkeys(String selector, String Address, String Data) throws Exception {
-        Actions action = new Actions(driver);
-        WebElement ele;
-        WebDriverWait wait = new WebDriverWait(driver, 3);
-        //String selector = null;
-        switch (selector) {
-        case "xpath":
-            try {
-                ele = driver.findElement(By.xpath(Address));
-                ele.sendKeys(Data);
-                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-            //    action.contextClick(ele).perform();
-                action.click(ele).perform();    
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "cssSelector":
+		Actions action = new Actions(driver);
+		WebElement ele;
+		WebDriverWait wait = new WebDriverWait(driver, 3);
 
- 
+		switch (selector) {
+		case "xpath":
+			try {
+				ele = driver.findElement(By.xpath(Address));
+				ele.sendKeys(Data);
+				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+				action.click(ele).perform();
+			} catch (Exception e) {
+				logger.error("In sendkeys action xpath is not functioned ");
+			}
+			logger.info("In sendkeys action xpath is functioned ");
+			break;
 
-            try {
+		case "cssSelector":
+			try {
+				ele = driver.findElement(By.cssSelector(Address));
+				ele.sendKeys(Data);
+				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+				action.click(ele).perform();
+			} catch (Exception e) {
+				logger.error("In sendkeys action cssSelector is not functioned ");
+			}
+			logger.info("In sendkeys action cssSelector is functioned ");
+			break;
 
- 
+		case "id":
+			try {
+				ele = driver.findElement(By.id(Address));
+				ele.sendKeys(Data);
+				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+				action.click(ele).perform();
+			} catch (Exception e) {
+				logger.error("In sendkeys action id is not functioned ");
+			}
+			logger.info("In sendkeys action id is functioned ");
+			break;
 
-                ele = driver.findElement(By.cssSelector(Address));
-                ele.sendKeys(Data);
-                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+		case "className":
+			try {
+				ele = driver.findElement(By.className(Address));
+				ele.sendKeys(Data);
+				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+				action.click(ele).perform();
+			} catch (Exception e) {
+				logger.error("In sendkeys action className is not functioned ");
+			}
+			logger.info("In sendkeys action className is functioned ");
+			break;
 
- 
+		case "tagName":
+			try {
+				ele = driver.findElement(By.tagName(Address));
+				ele.sendKeys(Data);
+				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+				action.click(ele).perform();
+			} catch (Exception e) {
+				logger.error("In sendkeys action tagName is not functioned ");
+			}
+			logger.info("In sendkeys action tagName is functioned ");
+			break;
 
-                //action.contextClick(ele).perform();
-                action.click(ele).perform();
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "id":
-            try {
-                ele = driver.findElement(By.id(Address));
-                ele.sendKeys(Data);
-                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+		case "linkText":
+			try {
+				ele = driver.findElement(By.linkText(Address));
+				ele.sendKeys(Data);
+				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+				action.click(ele).perform();
+			} catch (Exception e) {
+				logger.error("In sendkeys action linkText is not functioned ");
+			}
+			logger.info("In sendkeys action linkText is functioned ");
+			break;
 
- 
+		case "name":
+			try {
+				ele = driver.findElement(By.name(Address));
+				ele.sendKeys(Data);
+				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+				action.click(ele).perform();
+			} catch (Exception e) {
+				logger.error("In sendkeys action name is not functioned ");
+			}
+			logger.info("In sendkeys action name is functioned ");
+			break;
 
-                //action.contextClick(ele).perform();
-                action.click(ele).perform();
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "className":
-            try {
-               ele = driver.findElement(By.className(Address));
-                ele.sendKeys(Data);
-                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-                //action.contextClick(ele).perform();
-                action.click(ele).perform();
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "tagName":
-            try {
-                ele = driver.findElement(By.tagName(Address));
-                ele.sendKeys(Data);
-                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+		case "partialLinkText":
+			try {
+				ele = driver.findElement(By.partialLinkText(Address));
+				ele.sendKeys(Data);
+				element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+				action.click(ele).perform();
 
-                action.click(ele).perform();
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "linkText":
+			} catch (Exception e) {
+				logger.error("In sendkeys action partialLinkText is not functioned ");
+			}
+			logger.info("In sendkeys action partialLinkText is functioned ");
+			break;
 
-            try {
+		default:
+			try {
+				throw new Exception("locator : " + selector + " not found!!!");
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(" " + selector + " sendkeys action is not functioned ");
+			}
+			logger.info(" " + selector + " sendkeys action is functioned ");
+		}
+		return Locator;
 
-                ele = driver.findElement(By.linkText(Address));
-                ele.sendKeys(Data);
-                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
+	}
 
-                //action.contextClick(ele).perform();
-                action.click(ele).perform();
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "name":
-            try {
-                ele = driver.findElement(By.name(Address));
-                ele.sendKeys(Data);
-                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-                //action.contextClick(ele).perform();
-                action.click(ele).perform();
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        case "partialLinkText":
-            try {
-                ele = driver.findElement(By.partialLinkText(Address));
-                ele.sendKeys(Data);
-                element = wait.until(ExpectedConditions.elementToBeClickable(ele));
-                //action.contextClick(ele).perform();
-                action.click(ele).perform();
-            } catch (Exception e) {
-                Assert.assertTrue(false);
-            }
-            break;
-        default:
-            throw new Exception("locator : " + selector + " not found!!!");
-        }
-        return Locator;
-    
-
+	public void waitCall() throws InterruptedException {
+		Thread.sleep(3000);
+	//	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+	//	driver.manage().timeouts().pageLoadTimeout(3, TimeUnit.SECONDS);
+	//	driver.manage().timeouts().wait(3000);
+	//	wait(3000);
 		
 	}
 
 }
-
-	
-

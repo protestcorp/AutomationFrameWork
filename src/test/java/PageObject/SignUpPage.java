@@ -87,7 +87,7 @@ public class SignUpPage extends ActionUtilities {
 	}
 	
 	
-	public WebElement ClickOnSignupUsernameTextbox()
+	public void ClickOnSignupUsernameTextbox()
 	{try {
 		click(act.getselector("Signup","signUpusername1"),act.getvalue("Signup","signUpusername1", 0));
 		
@@ -96,13 +96,11 @@ public class SignUpPage extends ActionUtilities {
 		e.printStackTrace();
 		
 	}
-		
-		
-		return locator;
+	
 
 	}
 	
-	public WebElement HoverOnSignupUsernameTextbox()
+	public void HoverOnSignupUsernameTextbox()
 	{
 		try {
 			hover(act.getselector("Signup","signUpusername1"),act.getvalue("Signup","signUpusername1", 0));
@@ -111,12 +109,11 @@ public class SignUpPage extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		WebElement action = null;
-		return action;
+		
 
 	}
 	
-	public WebElement DoubleClickOnSignupUsernameTextbox()
+	public void DoubleClickOnSignupUsernameTextbox()
 	{
 		try {
 			doubleClick(act.getselector("Signup","signUpusername1"),act.getvalue("Signup","signUpusername1", 0));
@@ -125,11 +122,10 @@ public class SignUpPage extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
-
+		
 	}
 	
-	public WebElement TextVerifyOnSignupUsernameTextbox()
+	public void TextVerifyOnSignupUsernameTextbox()
 	{
 		try {
 			textVerify(act.getselector("Signup","signUpusername1"),act.getvalue("Signup","signUpusername1", 0));
@@ -138,7 +134,7 @@ public class SignUpPage extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 
 	}
 	
@@ -154,7 +150,7 @@ public class SignUpPage extends ActionUtilities {
 
 	}
 	
-	public WebElement ClickOnSignupPwdTextbox()
+	public void ClickOnSignupPwdTextbox()
 	{
 		try {
 			click(act.getselector("Signup","signUppassword1"),act.getvalue("Signup","signUppassword1", 0));
@@ -163,11 +159,11 @@ public class SignUpPage extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 
 	}
 	
-	public WebElement DoubleClickonSignupPwdTextbox()
+	public void DoubleClickonSignupPwdTextbox()
 	{
 		try {
 			doubleClick(act.getselector("Signup","signUppassword1"),act.getvalue("Signup","signUppassword1", 0));
@@ -176,10 +172,10 @@ public class SignUpPage extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 	}
 	
-	public WebElement TextVerifyOnSignupPwdTextbox()
+	public void TextVerifyOnSignupPwdTextbox()
 	{
 		try {
 			textVerify(act.getselector("Signup","signUppassword1"),act.getvalue("Signup","signUppassword1", 0));
@@ -188,7 +184,7 @@ public class SignUpPage extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 	}
 	
 	public void ClearSignupPwdTextbox()
@@ -312,8 +308,7 @@ public class SignUpPage extends ActionUtilities {
 	}
 	public void EnterTextToUserNameTextBox(String username)
     {
-        DataXMLHandler data = new DataXMLHandler();
-        data.getData("SignIn","Username", 0);
+   
         try {
             sendkeys(act.getselector("Signup","signUpusername1"),act.getvalue("Signup","signUpusername1", 0),username);
         } catch (Exception e) {
@@ -325,8 +320,7 @@ public class SignUpPage extends ActionUtilities {
    
     public void EnterTextToPwdTextBox(String password)
     {
-        DataXMLHandler data = new DataXMLHandler();
-        data.getData("SignIn","Username", 0);
+    
         try {
             sendkeys(act.getselector("Signup","signUppassword1"),act.getvalue("Signup","signUppassword1", 0),password);
         } catch (Exception e) {

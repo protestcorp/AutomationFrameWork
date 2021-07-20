@@ -23,7 +23,7 @@ public class LogInPage  extends ActionUtilities {
 		public void ClickOnLogInLink()
 		{
 			try {
-				newTab(act.getselector("Login","LogInLink"),act.getvalue("Login","LogInLink", 0));
+				click(act.getselector("Login","LogInLink"),act.getvalue("Login","LogInLink", 0));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -80,7 +80,7 @@ public class LogInPage  extends ActionUtilities {
 
 	}
 	
-	public WebElement ClickOnLogInUsernameTextbox()
+	public void ClickOnLogInUsernameTextbox()
 	{
 		try {
 			click(act.getselector("Login","LogInUsername"),act.getvalue("Login","LogInUsername", 0));
@@ -90,11 +90,11 @@ public class LogInPage  extends ActionUtilities {
 			
 		}
 		
-		return locator;
+	
 
 	}
 	
-	public WebElement HoverOnLogInUsernameTextbox()
+	public void HoverOnLogInUsernameTextbox()
 	{
 		try {
 			hover(act.getselector("Login","LogInUsername"),act.getvalue("Login","LogInUsername", 0));
@@ -103,10 +103,10 @@ public class LogInPage  extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 	}
 	
-	public WebElement DoubleClickOnLogInUsernameTextbox()
+	public void DoubleClickOnLogInUsernameTextbox()
 	{
 		try {
 			doubleClick(act.getselector("Login","LogInUsername"),act.getvalue("Login","LogInUsername", 0));
@@ -115,7 +115,7 @@ public class LogInPage  extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 	}
 	
 	public void TextVerifyOnLogInUsernameTextbox()
@@ -142,7 +142,7 @@ public class LogInPage  extends ActionUtilities {
 
 	}
 	
-	public WebElement ClickOnLogInPwdTextbox()
+	public void ClickOnLogInPwdTextbox()
 	{
 		try {
 			click(act.getselector("Login","LogInPassword"),act.getvalue("Login","LogInPassword", 0));
@@ -151,10 +151,10 @@ public class LogInPage  extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 
 	}
-	public WebElement HoverOnLogInPwdTextbox()
+	public void HoverOnLogInPwdTextbox()
 	{
 		try {
 			hover(act.getselector("Login","LogInPassword"),act.getvalue("Login","LogInPassword", 0));
@@ -163,10 +163,10 @@ public class LogInPage  extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 	}
 	
-	public WebElement DoubleClickonLogInPwdTextbox()
+	public void DoubleClickonLogInPwdTextbox()
 	{
 		try {
 			doubleClick(act.getselector("Login","LogInPassword"),act.getvalue("Login","LogInPassword", 0));
@@ -175,7 +175,7 @@ public class LogInPage  extends ActionUtilities {
 			e.printStackTrace();
 			
 		}
-		return locator;
+		
 	}
 	
 	public void TextVerifyOnLogInPwdTextbox()
@@ -358,8 +358,7 @@ public class LogInPage  extends ActionUtilities {
 	}
 	public void EnterTextToUserNameTextBox(String username)
     {
-        DataXMLHandler data = new DataXMLHandler();
-        data.getData("Login","Username", 0);
+     
         try {
             sendkeys(act.getselector("Login","loginSendKeysusername"),act.getvalue("Login","loginSendKeysusername", 0),username);
         } catch (Exception e) {
@@ -371,8 +370,7 @@ public class LogInPage  extends ActionUtilities {
    
     public void EnterTextToPwdTextBox(String password)
     {
-        DataXMLHandler data = new DataXMLHandler();
-        data.getData("Login","Username", 0);
+        
         try {
             sendkeys(act.getselector("Login","loginsendkeyspassword1"),act.getvalue("Login","loginsendkeyspassword1", 0),password);
         } catch (Exception e) {

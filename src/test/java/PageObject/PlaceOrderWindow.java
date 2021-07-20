@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import Actions.ActionUtilities;
-import CucumberOptionsss.DataXMLHandler;
+
 import CucumberOptionsss.PageObjectHandler;
 
 public class PlaceOrderWindow extends ActionUtilities {
@@ -489,8 +489,7 @@ public void ClickOnPlaceOrderCancelButton()
 
 public void EnterTextToName(String text)
 {
-    DataXMLHandler data = new DataXMLHandler();
-    data.getData("Loginn","Username", 0);
+    
     try {
         sendkeys(act.getselector("PlaceOrderWindow","UsernameTextbox"),act.getvalue("PlaceOrderWindow","UsernameTextbox", 0),text);
     } catch (Exception e) {
@@ -502,8 +501,7 @@ public void EnterTextToName(String text)
 
 public void EnterTextToCountry(String text)
 {
-    DataXMLHandler data = new DataXMLHandler();
-    data.getData("Loginn","Username", 0);
+    
     try {
         sendkeys(act.getselector("PlaceOrderWindow","CountryTextbox"),act.getvalue("PlaceOrderWindow","CountryTextbox", 0),text);
     } catch (Exception e) {
@@ -515,8 +513,7 @@ public void EnterTextToCountry(String text)
 
 public void EnterTextToCity(String text)
 {
-    DataXMLHandler data = new DataXMLHandler();
-    data.getData("Loginn","Username", 0);
+   
     try {
         sendkeys(act.getselector("PlaceOrderWindow","CityTextbox"),act.getvalue("PlaceOrderWindow","CityTextbox", 0),text);
     } catch (Exception e) {
@@ -528,8 +525,6 @@ public void EnterTextToCity(String text)
 
 public void EnterTextToCreditCard(String text)
 {
-    DataXMLHandler data = new DataXMLHandler();
-    data.getData("Loginn","Username", 0);
     try {
         sendkeys(act.getselector("PlaceOrderWindow","CreditCartTextbox"),act.getvalue("PlaceOrderWindow","CreditCartTextbox", 0),text);
     } catch (Exception e) {
@@ -541,8 +536,7 @@ public void EnterTextToCreditCard(String text)
 
 public void EnterTextToMonth(String text)
 {
-    DataXMLHandler data = new DataXMLHandler();
-    data.getData("Loginn","Username", 0);
+   
     try {
     	sendkeys(act.getselector("PlaceOrderWindow","MonthTextbox"),act.getvalue("PlaceOrderWindow","MonthTextbox", 0),text);
     } catch (Exception e) {
@@ -554,8 +548,6 @@ public void EnterTextToMonth(String text)
 
 public void EnterTextToYear(String text)
 {
-    DataXMLHandler data = new DataXMLHandler();
-    data.getData("Loginn","Username", 0);
     try {
     	sendkeys(act.getselector("PlaceOrderWindow","YearTextbox"),act.getvalue("PlaceOrderWindow","YearTextbox", 0),text);
     } catch (Exception e) {
@@ -564,5 +556,5 @@ public void EnterTextToYear(String text)
        
     }
 }
-// 
+
 }
