@@ -9,23 +9,23 @@ import org.testng.annotations.Test;
 
 public class Link extends ActionUtilities {
 	WebDriver driver;
-	String Locator;
+	String selector;
 	String Address;
 
 	
 	public void clickOnLink() throws Exception {
-		click();
+		click(selector, Address);
 	}
 	public void newTabOnLink() throws Exception {
-		newTab();
+		newTab(selector, Address);
 		
 	}
 	public void copyPasteOnLink() throws Exception {
-		copyPaste();
+	//	copyPaste(selector, Address);
 		
 	}
 	public void linkVerify() throws Exception {
-		textVerify();
+		textVerify(selector, Address);
 		
 	}
 }

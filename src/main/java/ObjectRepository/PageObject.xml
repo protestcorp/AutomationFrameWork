@@ -9,6 +9,67 @@
             <selector>id</selector>
             <value>navbarExample</value>
         </navBar>
+        
+        <HomeTab>
+            <selector>xpath</selector>
+            <value>//a[contains(text(),'Home')]</value>
+        </HomeTab>
+        
+        <ContactTab>
+            <selector>xpath</selector>
+            <value>//a[contains(text(),'Contact')]</value>
+        </ContactTab>
+        
+        <AboutUsTab>
+            <selector>xpath</selector>
+            <value>//a[contains(text(),'About us')]</value>
+        </AboutUsTab>
+        
+        <CartTab>
+            <selector>id</selector>
+            <value>cartur</value>
+        </CartTab>
+        
+        <ProductStore>
+            <selector>id</selector>
+            <value>nava</value>
+        </ProductStore>
+        
+        <RewindButton>
+            <selector>xpath</selector>
+            <value>//span[@class='carousel-control-prev-icon']</value>
+        </RewindButton>
+        
+        <ForwardButton>
+            <selector>xpath</selector>
+            <value>//span[@class='carousel-control-next-icon']</value>
+        </ForwardButton>
+        
+        <NextButton>
+            <selector>id</selector>
+            <value>next2</value>
+        </NextButton>
+        
+        <PreviousButton>
+            <selector>id</selector>
+            <value>prev2</value>
+        </PreviousButton>
+        
+        <PhonesCategories>
+            <selector>xpath</selector>
+            <value>//a[contains(text(),'Phones')]</value>
+        </PhonesCategories>
+        
+        <LaptopsCategories>
+            <selector>xpath</selector>
+            <value>//a[contains(text(),'Laptops')]</value>
+        </LaptopsCategories>
+        
+        <MonitorsCategories>
+            <selector>xpath</selector>
+            <value>//a[contains(text(),'Monitors')]</value>
+        </MonitorsCategories>
+        
             
     </Homepage>
     
@@ -25,6 +86,11 @@
             <value>sign-username</value>
         </signUpusername1>
         
+        <signUpSendKeys>
+            <selector>id</selector>
+            <value>sign-username</value>
+        </signUpSendKeys>
+        
         <signUppassword1>
             <selector>id</selector>
             <value>sign-password</value>
@@ -34,12 +100,35 @@
             <selector>xpath</selector>
             <value>//button[contains(text(),'Sign up')]</value>
         </signUpBtn1>
-    
+        
+        <CancelButton>
+            <selector>xpath</selector>
+            <value>/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/button[1]/span[1]</value>
+        </CancelButton>
+
+ 
+
+        <CloseButton>
+            <selector>xpath</selector>
+            <value>/html[1]/body[1]/div[2]/div[1]/div[1]/div[3]/button[1]</value>
+        </CloseButton>
+        
+        
     </Signup>
     
         
     <Login>
     
+     <loginSendKeysusername>
+            <selector>id</selector>
+            <value>loginusername</value>
+        </loginSendKeysusername>
+        
+        <loginsendkeyspassword1>
+            <selector>id</selector>
+            <value>loginpassword</value>
+        </loginsendkeyspassword1>
+        
         <LogInLink>
             <selector>id</selector>
             <value>login2</value>
@@ -64,10 +153,107 @@
             <selector>id</selector>
             <value>logout2</value>
         </LogOut>
+        
+        <CancelButton>
+            <selector>xpath</selector>
+            <value>/html[1]/body[1]/div[4]/div[1]/div[1]/div[1]/button[1]/span[1]</value>
+        </CancelButton>
+        
+        <CloseButton>
+            <selector>xpath</selector>
+            <value>/html[1]/body[1]/div[4]/div[1]/div[1]/div[3]/button[1]</value>
+        </CloseButton>
 
  
 
     </Login>
     
     
+    <AddtoCartPage>
+    
+        <AddtoCartButton>
+            <selector>xpath</selector>
+            <value>//a[contains(text(),'Add to cart')]</value>
+        </AddtoCartButton>
+        
+        <DeleteLink>
+            <selector>xpath</selector>
+            <value>/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/a[1]</value>
+        </DeleteLink>
+        
+        <PlaceOrderButton>
+            <selector>xpath</selector>
+            <value>//button[contains(text(),'Place Order')]</value>
+        </PlaceOrderButton>
+        
+    </AddtoCartPage>
+    
+    
+    <PlaceOrderWindow>
+    
+        <UsernameTextbox>
+            <selector>id</selector>
+            <value>name</value>
+        </UsernameTextbox>
+        
+        <CountryTextbox>
+            <selector>id</selector>
+            <value>country</value>
+        </CountryTextbox>
+        
+        <CityTextbox>
+            <selector>id</selector>
+            <value>city</value>
+        </CityTextbox>
+        
+        <CreditCartTextbox>
+            <selector>id</selector>
+            <value>card</value>
+        </CreditCartTextbox>
+        
+        <MonthTextbox>
+            <selector>id</selector>
+            <value>month</value>
+        </MonthTextbox>
+        
+        <YearTextbox>
+            <selector>id</selector>
+            <value>year</value>
+        </YearTextbox>
+        
+        <CloseButton>
+            <selector>xpath</selector>
+            <value>/html[1]/body[1]/div[3]/div[1]/div[1]/div[3]/button[1]</value>
+        </CloseButton>
+        
+        <PurchaseButton>
+            <selector>xpath</selector>
+            <value>//button[contains(text(),'Purchase')]</value>
+        </PurchaseButton>
+        
+        <CancelButton>
+            <selector>xpath</selector>
+            <value>/html[1]/body[1]/div[3]/div[1]/div[1]/div[1]/button[1]/span[1]</value>
+        </CancelButton>
+    
+    </PlaceOrderWindow>
+    
+    <ThankyouforPurchaseWindow>
+        
+        <OKButton>
+            <selector>xpath</selector>
+            <value>//button[@class='confirm btn btn-lg btn-primary']</value>
+        </OKButton>
+        
+    </ThankyouforPurchaseWindow>
+    
+    <ProductList>
+    <Product>
+      <selector>xpath</selector>
+            <value>//a[contains(text(),'Nexus 6')]</value>
+    </Product>
+    </ProductList>
+    
+    
 </Pageobjectmodel>
+        

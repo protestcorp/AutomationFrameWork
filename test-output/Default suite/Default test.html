@@ -55,11 +55,19 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
+<<<<<<< HEAD
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
 <td>Started on:</td><td>Thu Jul 08 15:57:04 IST 2021</td>
 </tr>
 <tr><td>Total time:</td><td>32 seconds (32972 ms)</td>
+=======
+<td>Tests passed/Failed/Skipped:</td><td>0/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Jul 19 13:18:11 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>19 seconds (19548 ms)</td>
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,6 +84,7 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='CucumberOptionsss.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: CucumberOptionsss.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify user credentials to sign-up and log-in", "Optional[FrameWork on Demoblaze]"</td>
+<<<<<<< HEAD
 <td><div><pre>org.openqa.selenium.InvalidElementStateException: invalid element state
   (Session info: chrome=91.0.4472.114)
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
@@ -88,12 +97,26 @@ Session ID: 09c0934602324e62180deaca15d41201
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+=======
+<td><div><pre>org.openqa.selenium.NoAlertPresentException: no such alert
+  (Session info: chrome=91.0.4472.124)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LAPTOP-I390DLKC&apos;, ip: &apos;192.168.0.195&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_241&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.124, chrome: {chromedriverVersion: 91.0.4472.19 (1bf021f248676..., userDataDir: C:\Users\Likith\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62138}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 02605bc7341c5100eaa5145afdbf9b1d
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+<<<<<<< HEAD
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:124)
 	at StepDefinitions.StepDefnition.checkSignIn(StepDefnition.java:71)
@@ -112,12 +135,32 @@ Session ID: 09c0934602324e62180deaca15d41201
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+=======
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.alert(RemoteWebDriver.java:932)
+	at StepDefinitions.StepDefnition.checkSignIn(StepDefnition.java:117)
+	at StepDefinitions.StepDefnition.user_register_into_application_with_username_and_password(StepDefnition.java:67)
+	at ?.User register into application with username and password(file:///E:/Automation/FrameWork/src/test/java/features/FrameWork.feature:5)
+</pre></div><a href='#' onClick='toggleBox("stack-trace8996952", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace8996952'><pre>org.openqa.selenium.NoAlertPresentException: no such alert
+  (Session info: chrome=91.0.4472.124)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;LAPTOP-I390DLKC&apos;, ip: &apos;192.168.0.195&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_241&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.124, chrome: {chromedriverVersion: 91.0.4472.19 (1bf021f248676..., userDataDir: C:\Users\Likith\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62138}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 02605bc7341c5100eaa5145afdbf9b1d
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+<<<<<<< HEAD
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:124)
 	at StepDefinitions.StepDefnition.checkSignIn(StepDefnition.java:71)
@@ -126,6 +169,32 @@ Session ID: 09c0934602324e62180deaca15d41201
 </pre></div></td>
 <td>32</td>
 <td>CucumberOptionsss.TestRunnerTestNG@3514a4c0</td></tr>
+=======
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.alert(RemoteWebDriver.java:932)
+	at StepDefinitions.StepDefnition.checkSignIn(StepDefnition.java:117)
+	at StepDefinitions.StepDefnition.user_register_into_application_with_username_and_password(StepDefnition.java:67)
+	at ?.User register into application with username and password(file:///E:/Automation/FrameWork/src/test/java/features/FrameWork.feature:5)
+</pre></div></td>
+<td>11</td>
+<td>CucumberOptionsss.TestRunnerTestNG@27c20538</td></tr>
+<tr>
+<td title='CucumberOptionsss.TestRunnerTestNG.runScenario()'><b>runScenario</b><br>Test class: CucumberOptionsss.TestRunnerTestNG<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify end to end purchase", "Optional[FrameWork on Demoblaze]"</td>
+<td><div><pre>java.lang.NullPointerException
+	at Actions.ActionUtilities.waitCall(ActionUtilities.java:1564)
+	at StepDefinitions.StepDefnition.checkSignInn(StepDefnition.java:252)
+	at StepDefinitions.StepDefnition.user_login_with_credentials_and_purchase_a_product(StepDefnition.java:227)
+	at ?.User login with Credentials and purchase a product(file:///E:/Automation/FrameWork/src/test/java/features/FrameWork.feature:12)
+</pre></div><a href='#' onClick='toggleBox("stack-trace310792845", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace310792845'><pre>java.lang.NullPointerException
+	at Actions.ActionUtilities.waitCall(ActionUtilities.java:1564)
+	at StepDefinitions.StepDefnition.checkSignInn(StepDefnition.java:252)
+	at StepDefinitions.StepDefnition.user_login_with_credentials_and_purchase_a_product(StepDefnition.java:227)
+	at ?.User login with Credentials and purchase a product(file:///E:/Automation/FrameWork/src/test/java/features/FrameWork.feature:12)
+</pre></div></td>
+<td>8</td>
+<td>CucumberOptionsss.TestRunnerTestNG@27c20538</td></tr>
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
 </table><p>
 </body>
 </html>

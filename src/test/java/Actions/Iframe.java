@@ -3,7 +3,7 @@ package Actions;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class Iframe extends ActionHandlers {
+public class Iframe extends ActionUtilities {
 	@Test
 	public void iframeAction() {
 	 int value=0;

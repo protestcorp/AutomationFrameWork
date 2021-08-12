@@ -1,4 +1,8 @@
 package ObjectRepository;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
 import java.io.File;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
@@ -18,7 +22,11 @@ public class PageObjectHandler {
         //Integer.parseInt(toString()) length = 0;
         try
         {
+<<<<<<< HEAD
          File file = new File("C:\\Users\\CHETAN S\\git\\AutomationFrameWork\\src\\main\\java\\ObjectRepository\\PageObject.xml"); 
+=======
+         File file = new File("E:\\Automation\\FrameWork\\src\\main\\java\\ObjectRepository\\PageObject.xml"); 
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
          DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
          DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
          Document doc = dBuilder.parse(file);
@@ -59,7 +67,11 @@ public class PageObjectHandler {
         String data = "";
         try
         {
+<<<<<<< HEAD
          File file = new File("C:\\Users\\CHETAN S\\git\\AutomationFrameWork\\src\\main\\java\\ObjectRepository\\PageObject.xml"); 
+=======
+         File file = new File("E:\\Automation\\FrameWork\\src\\main\\java\\ObjectRepository\\PageObject.xml"); 
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(file);
@@ -94,4 +106,6 @@ public class PageObjectHandler {
         }
         return data;
         }
+
+	
 }

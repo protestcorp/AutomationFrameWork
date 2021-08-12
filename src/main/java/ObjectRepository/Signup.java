@@ -2,7 +2,10 @@ package ObjectRepository;
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -56,7 +59,7 @@ import org.openqa.selenium.support.PageFactory;
 	
 		
 
-public class Signup extends PageObjectHandler{
+public class Signup {
 	    
 	    WebElement locator = null;    
 	    WebDriver driver;

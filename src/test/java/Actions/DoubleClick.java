@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public  class DoubleClick extends ActionHandlers{
-	
+public  class DoubleClick {
+/*	
 
 	@Test
 	public  void doubleClickk() throws InterruptedException {
@@ -69,4 +69,5 @@ public  class DoubleClick extends ActionHandlers{
 				action.doubleClick(trialaction).perform();
 				Thread.sleep(3000);
 		  }
-}}
+}*/
+}

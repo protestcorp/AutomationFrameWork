@@ -7,11 +7,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
 
-public class Login extends PageObjectHandler {
+public class Login  {
 	/*
 	 * @FindBy(id="login2") WebElement LoginLink;
 	 * 

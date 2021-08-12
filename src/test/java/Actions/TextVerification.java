@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class TextVerification extends ActionHandlers {
+public class TextVerification extends ActionUtilities {
 
 	
 
@@ -13,6 +13,7 @@ public class TextVerification extends ActionHandlers {
 		
 		String Expected = null;
 		
+		String Address = null;
 		WebElement element = driver.findElement(By.xpath(Address));
 
 		String text = element.getText();

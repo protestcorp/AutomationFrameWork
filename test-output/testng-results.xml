@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
@@ -15,6 +16,24 @@
           </reporter-output>
         </test-method> <!-- setUpClass -->
         <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@3514a4c0]" started-at="2021-07-08T15:57:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-07-08T15:57:37 IST" duration-ms="32417" status="FAIL">
+=======
+<testng-results skipped="0" failed="2" ignored="0" total="2" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="19548" started-at="2021-07-19T07:48:11Z" finished-at="2021-07-19T07:48:30Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@27c20538]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Default test" duration-ms="19548" started-at="2021-07-19T07:48:11Z" finished-at="2021-07-19T07:48:30Z">
+      <class name="CucumberOptionsss.TestRunnerTestNG">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@27c20538]" name="setUpClass" is-config="true" duration-ms="441" started-at="2021-07-19T07:48:11Z" finished-at="2021-07-19T07:48:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@27c20538]" name="runScenario" duration-ms="11024" started-at="2021-07-19T07:48:11Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-07-19T07:48:22Z">
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
           <params>
             <param index="0">
               <value>
@@ -27,6 +46,7 @@
               </value>
             </param>
           </params>
+<<<<<<< HEAD
           <exception class="org.openqa.selenium.InvalidElementStateException">
             <message>
               <![CDATA[invalid element state
@@ -50,12 +70,37 @@ at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Nati
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
 at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
 at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+=======
+          <exception class="org.openqa.selenium.NoAlertPresentException">
+            <message>
+              <![CDATA[no such alert
+  (Session info: chrome=91.0.4472.124)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-I390DLKC', ip: '192.168.0.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.124, chrome: {chromedriverVersion: 91.0.4472.19 (1bf021f248676..., userDataDir: C:\Users\Likith\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62138}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 02605bc7341c5100eaa5145afdbf9b1d]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoAlertPresentException: no such alert
+  (Session info: chrome=91.0.4472.124)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LAPTOP-I390DLKC', ip: '192.168.0.195', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.124, chrome: {chromedriverVersion: 91.0.4472.19 (1bf021f248676..., userDataDir: C:\Users\Likith\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62138}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 02605bc7341c5100eaa5145afdbf9b1d
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
 at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+<<<<<<< HEAD
 at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:124)
 at StepDefinitions.StepDefnition.checkSignIn(StepDefnition.java:71)
@@ -68,6 +113,46 @@ at ✽.User register into application with username and password(file:///C:/User
           </reporter-output>
         </test-method> <!-- runScenario -->
         <test-method is-config="true" signature="tearDownClass()[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@3514a4c0]" started-at="2021-07-08T15:57:37 IST" name="tearDownClass" finished-at="2021-07-08T15:57:37 IST" duration-ms="23" status="PASS">
+=======
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.alert(RemoteWebDriver.java:932)
+at StepDefinitions.StepDefnition.checkSignIn(StepDefnition.java:117)
+at StepDefinitions.StepDefnition.user_register_into_application_with_username_and_password(StepDefnition.java:67)
+at ✽.User register into application with username and password(file:///E:/Automation/FrameWork/src/test/java/features/FrameWork.feature:5)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoAlertPresentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@27c20538]" name="runScenario" duration-ms="8035" started-at="2021-07-19T07:48:22Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-07-19T07:48:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["To verify end to end purchase"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[FrameWork on Demoblaze]"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at Actions.ActionUtilities.waitCall(ActionUtilities.java:1564)
+at StepDefinitions.StepDefnition.checkSignInn(StepDefnition.java:252)
+at StepDefinitions.StepDefnition.user_login_with_credentials_and_purchase_a_product(StepDefnition.java:227)
+at ✽.User login with Credentials and purchase a product(file:///E:/Automation/FrameWork/src/test/java/features/FrameWork.feature:12)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@27c20538]" name="tearDownClass" is-config="true" duration-ms="15" started-at="2021-07-19T07:48:30Z" finished-at="2021-07-19T07:48:30Z">
+>>>>>>> 36ccaa1fc3741adb2263f2bf6f3448e975ec6982
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
