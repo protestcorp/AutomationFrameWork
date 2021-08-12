@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="124022" started-at="2021-06-08T13:16:34Z" finished-at="2021-06-08T13:18:38Z">
+  <suite started-at="2021-07-08T15:57:04 IST" name="Default suite" finished-at="2021-07-08T15:57:37 IST" duration-ms="32972">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@59494225]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@3514a4c0]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Default test" duration-ms="124022" started-at="2021-06-08T13:16:34Z" finished-at="2021-06-08T13:18:38Z">
+    <test started-at="2021-07-08T15:57:04 IST" name="Default test" finished-at="2021-07-08T15:57:37 IST" duration-ms="32972">
       <class name="CucumberOptionsss.TestRunnerTestNG">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@59494225]" name="setUpClass" is-config="true" duration-ms="541" started-at="2021-06-08T13:16:34Z" finished-at="2021-06-08T13:16:34Z">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@3514a4c0]" started-at="2021-07-08T15:57:04 IST" name="setUpClass" finished-at="2021-07-08T15:57:04 IST" duration-ms="473" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@59494225]" name="runScenario" duration-ms="123411" started-at="2021-06-08T13:16:34Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-06-08T13:18:37Z">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@3514a4c0]" started-at="2021-07-08T15:57:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-07-08T15:57:37 IST" duration-ms="32417" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -27,10 +27,47 @@
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.InvalidElementStateException">
+            <message>
+              <![CDATA[invalid element state
+  (Session info: chrome=91.0.4472.114)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-S72DKBT', ip: '192.168.137.134', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.114, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\CHETAN~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:64575}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 09c0934602324e62180deaca15d41201]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=91.0.4472.114)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-S72DKBT', ip: '192.168.137.134', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 91.0.4472.114, chrome: {chromedriverVersion: 91.0.4472.101 (af52a90bf870..., userDataDir: C:\Users\CHETAN~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:64575}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 09c0934602324e62180deaca15d41201
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:124)
+at StepDefinitions.StepDefnition.checkSignIn(StepDefnition.java:71)
+at StepDefinitions.StepDefnition.user_register_into_application_with_username_and_password(StepDefnition.java:62)
+at ✽.User register into application with username and password(file:///C:/Users/CHETAN%20S/git/AutomationFrameWork/src/test/java/features/FrameWork.feature:6)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidElementStateException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@59494225]" name="tearDownClass" is-config="true" duration-ms="37" started-at="2021-06-08T13:18:37Z" finished-at="2021-06-08T13:18:38Z">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:CucumberOptionsss.TestRunnerTestNG@3514a4c0]" started-at="2021-07-08T15:57:37 IST" name="tearDownClass" finished-at="2021-07-08T15:57:37 IST" duration-ms="23" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

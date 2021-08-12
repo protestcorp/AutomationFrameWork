@@ -13,7 +13,7 @@ public int getNumberOfTags(String testCaseName, String tagName)
 int length = 0;
 try
 {
-File file = new File("E:\\Automation\\FrameWork\\src\\main\\java\\ObjectRepository\\DATA.xml");
+File file = new File("C:\\Users\\CHETAN S\\git\\AutomationFrameWork\\src\\main\\java\\ObjectRepository\\DATA.xml");
 DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 Document doc = dBuilder.parse(file);
@@ -42,7 +42,7 @@ return length;
 String data = "";
 try
 {
-File file = new File("E:\\Automation\\FrameWork\\src\\main\\java\\ObjectRepository\\DATA.xml");
+File file = new File("C:\\Users\\CHETAN S\\git\\AutomationFrameWork\\src\\main\\java\\ObjectRepository\\DATA.xml");
 DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 Document doc = dBuilder.parse(file);

@@ -69,10 +69,7 @@ import io.cucumber.java.en.When;
            
         	
         	 su.signUpLink1().clear();
-        	 newTab();
-        	 copyPaste();
-        	 dragAndDrop();
-        	 hoverAction();
+        	
             Thread.sleep(3000);
             su.signUpusername1().click();
             Thread.sleep(3000);

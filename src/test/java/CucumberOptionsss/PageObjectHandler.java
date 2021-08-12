@@ -18,7 +18,7 @@ public class PageObjectHandler {
         //Integer.parseInt(toString()) length = 0;
         try
         {
-         File file = new File("E:\\Automation\\FrameWork\\src\\main\\java\\ObjectRepository\\PageObject.xml"); 
+         File file = new File("C:\\Users\\CHETAN S\\git\\AutomationFrameWork\\src\\main\\java\\ObjectRepository\\PageObject.xml"); 
          DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
          DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
          Document doc = dBuilder.parse(file);
@@ -59,7 +59,7 @@ public class PageObjectHandler {
         String data = "";
         try
         {
-         File file = new File("E:\\Automation\\FrameWork\\src\\main\\java\\ObjectRepository\\PageObject.xml"); 
+         File file = new File("C:\\Users\\CHETAN S\\git\\AutomationFrameWork\\src\\main\\java\\ObjectRepository\\PageObject.xml"); 
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(file);
