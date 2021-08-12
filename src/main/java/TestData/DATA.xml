@@ -1,0 +1,72 @@
+<?xml version="1.0"?>  
+<class>  
+
+ 
+
+    <SignIn>  
+        
+        <Username>Pruthvi</Username>  
+        <Password>pru1234</Password>
+        
+        
+        <Username>Kanchana</Username>  
+        <Password>kanch1234</Password>
+        
+        
+       
+                
+    </SignIn>  
+
+ 
+
+    <Login>  
+        
+        <Username>Pruthvi</Username>  
+        <Password>pru1234</Password>
+       
+        <Username>Kanchana</Username>  
+        <Password>kanch1234</Password>
+        
+       
+        
+    </Login> 
+    
+  
+    <SignInn>  
+        
+        <Username>Pruthvi</Username>  
+        <Password>pru1234</Password>
+        
+     
+        
+       
+                
+    </SignInn>  
+
+ 
+
+    <Loginn>  
+        
+        <Username>Pruthvi</Username>  
+        <Password>pru1234</Password>
+     
+        
+       
+        
+    </Loginn> 
+    
+   
+ <PaymentData>
+ 
+ <name>Protest</name>
+ <country>India</country>
+ <city>Banglore</city>
+ <creditcard>12346578</creditcard>
+ <month>7</month>
+ <year>2021</year>
+ 
+  </PaymentData>
+    
+    
+
+</class>
