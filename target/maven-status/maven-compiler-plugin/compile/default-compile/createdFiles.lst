@@ -1,6 +1,0 @@
-ObjectRepository\PageObjectHandler.class
-ObjectRepository\Homepage.class
-ObjectRepository\Login.class
-ObjectRepository\Signup.class
-Project\FrameWork\Base.class
-Project\FrameWork\ExtentReporterNG.class
